@@ -1,0 +1,17 @@
+<div class="demo-container">
+  <h1>🎯 MFE Demo</h1>
+  <p>Testing Micro-Frontend Integration</p>
+  
+  <button (click)="loadMFE()" [disabled]="loading()">
+    {{ loading() ? 'Loading...' : 'Load Movie List MFE' }}
+  </button>
+  
+  <div *ngIf="error()" class="error">
+    {{ error() }}
+  </div>
+  
+  <div class="mfe-wrapper">
+    <h2 *ngIf="mfeLoaded()">✅ MFE Loaded Successfully!</h2>
+    <div #mfeContainer></div>
+  </div>
+</div>
