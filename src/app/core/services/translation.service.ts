@@ -32,6 +32,13 @@ export class TranslationService {
   constructor() {
     this.loadTranslations();
     this.loadSavedLanguage();
+    
+    // Listen for language changes from other MFEs
+    window.addEventListener('fitlog-language-change', (event: any) => {
+      if (event.detail && event.detail !== this.currentLanguage$.value) {
+        this.currentLanguage$.next(event.detail);
+      }
+    });
   }
 
   get currentLanguage() {
@@ -46,6 +53,7 @@ export class TranslationService {
     if (this.supportedLanguages.find(lang => lang.code === languageCode)) {
       this.currentLanguage$.next(languageCode);
       localStorage.setItem('fitlog-language', languageCode);
+      window.dispatchEvent(new CustomEvent('fitlog-language-change', { detail: languageCode }));
     }
   }
 
