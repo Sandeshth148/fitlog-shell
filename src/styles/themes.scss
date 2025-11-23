@@ -1,6 +1,7 @@
 :root {
   --color-bg: #ffffff;
   --color-text: #1f2937;
+  --color-text-primary: #1f2937;
   --color-primary: #3b82f6; /* More professional blue */
   --color-primary-dark: #2563eb;
   --color-primary-darker: #1d4ed8;
@@ -12,12 +13,14 @@
   --color-danger: #ef4444;
   --color-border: #e2e8f0;
   --color-bg-offset: #f8fafc;
+  --color-surface: #ffffff;
   --color-text-secondary: #64748b;
 }
 
 [data-theme="dark"] {
   --color-bg: #0f172a; /* Darker background */
   --color-text: #f8fafc;
+  --color-text-primary: #f8fafc;
   --color-primary: #60a5fa; /* Lighter blue for dark mode */
   --color-primary-dark: #3b82f6;
   --color-primary-darker: #2563eb;
@@ -29,5 +32,6 @@
   --color-danger: #f87171;
   --color-border: #334155;
   --color-bg-offset: #1e293b;
+  --color-surface: #1e293b;
   --color-text-secondary: #94a3b8;
 }

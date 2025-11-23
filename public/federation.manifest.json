@@ -1,1 +1,4 @@
-{}
+{
+    "fitlog-weight-tracker": "http://localhost:4202/remoteEntry.json",
+    "fitlog-streaks": "http://localhost:4204/remoteEntry.json"
+}
