@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Chart, ChartConfiguration, ChartType } from 'chart.js';
+import 'chartjs-adapter-date-fns';
 import { ChartService } from '../../services/chart.service';
 import { DateValidationService } from '../../../../core/services/date-validation.service';
 import { UserService } from '../../../../core/services/user.service';
