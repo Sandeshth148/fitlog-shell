@@ -90,7 +90,7 @@ export class TranslationService {
   private loadTranslations() {
     this.translations = {
       en: {
-        nav: { home: 'Home', trends: 'Trends' },
+        nav: { home: 'Home', trends: 'Trends', streaks: 'Streaks', weight: 'Weight' },
         home: { title: 'Weight Tracker', subtitle: 'Your personal weight tracking assistant.', addEntry: 'Add Entry', noEntries: 'No weight entries yet', getStarted: 'Add your first weight entry to get started!', recentEntries: 'Recent Entries' },
         trends: { title: 'Health Trends', subtitle: 'Track your progress and visualize your fitness journey over time.', weightTrend: 'Weight Trend', bmiTrend: 'BMI Trend', noData: 'No data available for the selected time range.', addEntries: 'Add some weight entries to see your trend!' },
         stats: { average: 'Average', current: 'Current', gained: 'Gained', lost: 'Lost', increased: 'Increased', decreased: 'Decreased', idealRange: 'Ideal Range', status: 'Status', averageBmi: 'Average BMI', currentBmi: 'Current BMI' },
@@ -151,7 +151,7 @@ export class TranslationService {
         }
       },
       hi: {
-        nav: { home: 'होम', trends: 'रुझान' },
+        nav: { home: 'होम', trends: 'रुझान', streaks: 'Streaks', weight: 'वजन' },
         home: { title: 'वजन ट्रैकर', subtitle: 'आपका व्यक्तिगत वजन ट्रैकिंग सहायक।', addEntry: 'एंट्री जोड़ें', noEntries: 'अभी तक कोई वजन एंट्री नहीं', getStarted: 'शुरू करने के लिए अपनी पहली वजन एंट्री जोड़ें!', recentEntries: 'हाल की एंट्रीज' },
         trends: { title: 'स्वास्थ्य रुझान', subtitle: 'अपनी प्रगति को ट्रैक करें और समय के साथ अपनी फिटनेस यात्रा को देखें।', weightTrend: 'वजन रुझान', bmiTrend: 'बीएमआई रुझान', noData: 'चयनित समय सीमा के लिए कोई डेटा उपलब्ध नहीं।', addEntries: 'अपना रुझान देखने के लिए कुछ वजन एंट्री जोड़ें!' },
         stats: { average: 'औसत', current: 'वर्तमान', gained: 'बढ़ा', lost: 'घटा', increased: 'बढ़ा', decreased: 'घटा', idealRange: 'आदर्श सीमा', status: 'स्थिति', averageBmi: 'औसत बीएमआई', currentBmi: 'वर्तमान बीएमआई' },
@@ -208,7 +208,7 @@ export class TranslationService {
         pwa: { installTitle: 'FitLog इंस्टॉल करें', installSubtitle: 'पूरा ऐप अनुभव प्राप्त करें', installButton: 'ऐप इंस्टॉल करें' }
       },
       kn: {
-        nav: { home: 'ಮುಖ್ಯಪುಟ', trends: 'ಪ್ರವೃತ್ತಿಗಳು' },
+        nav: { home: 'ಮುಖ್ಯಪುಟ', trends: 'ಪ್ರವೃತ್ತಿಗಳು', streaks: 'Streaks', weight: 'ತೂಕ' },
         home: { title: 'ತೂಕ ಟ್ರ್ಯಾಕರ್', subtitle: 'ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ತೂಕ ಟ್ರ್ಯಾಕಿಂಗ್ ಸಹಾಯಕ।', addEntry: 'ಎಂಟ್ರಿ ಸೇರಿಸಿ', noEntries: 'ಇನ್ನೂ ಯಾವುದೇ ತೂಕ ಎಂಟ್ರಿಗಳಿಲ್ಲ', getStarted: 'ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಮೊದಲ ತೂಕ ಎಂಟ್ರಿಯನ್ನು ಸೇರಿಸಿ!', recentEntries: 'ಇತ್ತೀಚಿನ ಎಂಟ್ರಿಗಳು' },
         trends: { title: 'ಆರೋಗ್ಯ ಪ್ರವೃತ್ತಿಗಳು', subtitle: 'ನಿಮ್ಮ ಪ್ರಗತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಮತ್ತು ಕಾಲಾನಂತರದಲ್ಲಿ ನಿಮ್ಮ ಫಿಟ್ನೆಸ್ ಪ್ರಯಾಣವನ್ನು ದೃಶ್ಯೀಕರಿಸಿ।', weightTrend: 'ತೂಕ ಪ್ರವೃತ್ತಿ', bmiTrend: 'BMI ಪ್ರವೃತ್ತಿ', noData: 'ಆಯ್ಕೆಮಾಡಿದ ಸಮಯ ವ್ಯಾಪ್ತಿಗೆ ಯಾವುದೇ ಡೇಟಾ ಲಭ್ಯವಿಲ್ಲ।', addEntries: 'ನಿಮ್ಮ ಪ್ರವೃತ್ತಿಯನ್ನು ನೋಡಲು ಕೆಲವು ತೂಕ ಎಂಟ್ರಿಗಳನ್ನು ಸೇರಿಸಿ!' },
         stats: { average: 'ಸರಾಸರಿ', current: 'ಪ್ರಸ್ತುತ', gained: 'ಹೆಚ್ಚಾಗಿದೆ', lost: 'ಕಳೆದುಕೊಂಡಿದೆ', increased: 'ಹೆಚ್ಚಾಗಿದೆ', decreased: 'ಕಡಿಮೆಯಾಗಿದೆ', idealRange: 'ಆದರ್ಶ ವ್ಯಾಪ್ತಿ', status: 'ಸ್ಥಿತಿ', averageBmi: 'ಸರಾಸರಿ BMI', currentBmi: 'ಪ್ರಸ್ತುತ BMI' },
@@ -264,7 +264,7 @@ export class TranslationService {
         pwa: { installTitle: 'FitLog ಇನ್ಸ್ಟಾಲ್ ಮಾಡಿ', installSubtitle: 'ಪೂರ್ಣ ಅಪ್ಲಿಕೇಶನ್ ಅನುಭವವನ್ನು ಪಡೆಯಿರಿ', installButton: 'ಅಪ್ಲಿಕೇಶನ್ ಇನ್ಸ್ಟಾಲ್ ಮಾಡಿ' }
       },
       ta: {
-        nav: { home: 'முகப்பு', trends: 'போக்குகள்' },
+        nav: { home: 'முகப்பு', trends: 'போக்குகள்', streaks: 'Streaks', weight: 'எடை' },
         home: { title: 'எடை கண்காணிப்பு', addEntry: 'பதிவு சேர்க்கவும்', noEntries: 'இன்னும் எடை பதிவுகள் இல்லை', getStarted: 'தொடங்க உங்கள் முதல் எடை பதிவைச் சேர்க்கவும்!' },
         trends: { title: 'உடல்நலப் போக்குகள்', subtitle: 'உங்கள் முன்னேற்றத்தைக் கண்காணித்து, காலப்போக்கில் உங்கள் உடற்பயிற்சி பயணத்தைக் காட்சிப்படுத்துங்கள்।', weightTrend: 'எடை போக்கு', bmiTrend: 'BMI போக்கு', noData: 'தேர்ந்தெடுக்கப்பட்ட நேர வரம்பிற்கு தரவு இல்லை।', addEntries: 'உங்கள் போக்கைப் பார்க்க சில எடை பதிவுகளைச் சேர்க்கவும்!' },
         stats: { average: 'சராசரி', current: 'தற்போதைய', gained: 'அதிகரித்தது', lost: 'இழந்தது', increased: 'அதிகரித்தது', decreased: 'குறைந்தது', idealRange: 'சிறந்த வரம்பு', status: 'நிலை', averageBmi: 'சராசரி BMI', currentBmi: 'தற்போதைய BMI' },
@@ -320,8 +320,8 @@ export class TranslationService {
         pwa: { installTitle: 'FitLog நிறுவவும்', installSubtitle: 'முழு பயன்பாட்டு அனுபவத்தைப் பெறுங்கள்', installButton: 'பயன்பாடு நிறுவவும்' }
       },
       te: {
-        nav: { home: 'హోమ్', trends: 'ట్రెండ్స్' },
-        home: { title: 'బరువు ట్రాకర్', addEntry: 'ఎంట్రీ జోడించండి', noEntries: 'ఇంకా బరువు ఎంట్రీలు లేవు', getStarted: 'ప్రారంభించడానికి మీ మొదటి బరువు ఎంట్రీని జోడించండి!' },
+        nav: { home: 'హోమ్', trends: 'ట్రెండ్స్', streaks: 'స్ట్రీక్స్', weight: 'బరువు' },
+        home: { title: 'బరువు ట్రాకర్', subtitle: 'మీ వ్యక్తిగత బరువు ట్రాకింగ్ సహాయకుడు.', addEntry: 'ఎంట్రీ జోడించండి', noEntries: 'ఇంకా బరువు ఎంట్రీలు లేవు', getStarted: 'ప్రారంభించడానికి మీ మొదటి బరువు ఎంట్రీని జోడించండి!' },
         trends: { title: 'ఆరోగ్య ట్రెండ్స్', subtitle: 'మీ పురోగతిని ట్రాక్ చేయండి మరియు కాలక్రమేణా మీ ఫిట్నెస్ ప్రయాణాన్ని దృశ్యమానం చేయండి।', weightTrend: 'బరువు ట్రెండ్', bmiTrend: 'BMI ట్రెండ్', noData: 'ఎంచుకున్న సమయ పరిధికి డేటా అందుబాటులో లేదు।', addEntries: 'మీ ట్రెండ్ను చూడటానికి కొన్ని బరువు ఎంట్రీలను జోడించండి!' },
         stats: { average: 'సగటు', current: 'ప్రస్తుత', gained: 'పెరిగింది', lost: 'కోల్పోయింది', increased: 'పెరిగింది', decreased: 'తగ్గింది', idealRange: 'ఆదర్శ పరిధి', status: 'స్థితి', averageBmi: 'సగటు BMI', currentBmi: 'ప్రస్తుత BMI' },
         bmi: { underweight: 'తక్కువ బరువు', normal: 'సాధారణ', overweight: 'అధిక బరువు', obese: 'స్థూలకాయం' },
@@ -376,7 +376,7 @@ export class TranslationService {
         pwa: { installTitle: 'FitLog ఇన్స్టాల్ చేయండి', installSubtitle: 'పూర్తి యాప్ అనుభవాన్ని పొందండి', installButton: 'యాప్ ఇన్స్టాల్ చేయండి' }
       },
       fr: {
-        nav: { home: 'Accueil', trends: 'Tendances' },
+        nav: { home: 'Accueil', trends: 'Tendances', streaks: 'Streaks', weight: 'Poids' },
         home: { title: 'Suivi du Poids', addEntry: 'Ajouter une Entrée', noEntries: 'Aucune entrée de poids pour le moment', getStarted: 'Ajoutez votre première entrée de poids pour commencer!' },
         trends: { title: 'Tendances Santé', subtitle: 'Suivez vos progrès et visualisez votre parcours fitness au fil du temps.', weightTrend: 'Tendance du Poids', bmiTrend: 'Tendance IMC', noData: 'Aucune donnée disponible pour la plage de temps sélectionnée.', addEntries: 'Ajoutez quelques entrées de poids pour voir votre tendance!' },
         stats: { average: 'Moyenne', current: 'Actuel', gained: 'Gagné', lost: 'Perdu', increased: 'Augmenté', decreased: 'Diminué', idealRange: 'Plage Idéale', status: 'Statut', averageBmi: 'IMC Moyen', currentBmi: 'IMC Actuel' },
@@ -432,7 +432,7 @@ export class TranslationService {
         pwa: { installTitle: 'Installer FitLog', installSubtitle: 'Obtenez l\'expérience complète de l\'application', installButton: 'Installer l\'App' }
       },
       de: {
-        nav: { home: 'Startseite', trends: 'Trends' },
+        nav: { home: 'Startseite', trends: 'Trends', streaks: 'Streaks', weight: 'Gewicht' },
         home: { title: 'Gewichts-Tracker', addEntry: 'Eintrag hinzufügen', noEntries: 'Noch keine Gewichtseinträge', getStarted: 'Fügen Sie Ihren ersten Gewichtseintrag hinzu, um zu beginnen!' },
         trends: { title: 'Gesundheitstrends', subtitle: 'Verfolgen Sie Ihren Fortschritt und visualisieren Sie Ihre Fitness-Reise über die Zeit.', weightTrend: 'Gewichtstrend', bmiTrend: 'BMI-Trend', noData: 'Keine Daten für den ausgewählten Zeitraum verfügbar.', addEntries: 'Fügen Sie einige Gewichtseinträge hinzu, um Ihren Trend zu sehen!' },
         stats: { average: 'Durchschnitt', current: 'Aktuell', gained: 'Zugenommen', lost: 'Verloren', increased: 'Gestiegen', decreased: 'Gesunken', idealRange: 'Idealbereich', status: 'Status', averageBmi: 'Durchschnittlicher BMI', currentBmi: 'Aktueller BMI' },

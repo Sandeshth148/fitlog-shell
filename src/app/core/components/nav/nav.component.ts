@@ -32,7 +32,7 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
           </a>
           <a routerLink="/weight-tracker" routerLinkActive="active" (click)="closeMobileMenu()">
             <span class="nav-icon">⚖️</span>
-            <span class="nav-text">Weight</span>
+            <span class="nav-text">{{ 'nav.weight' | translate }}</span>
           </a>
           <a routerLink="/trends" routerLinkActive="active" (click)="closeMobileMenu()">
             <span class="nav-icon">📈</span>
@@ -40,7 +40,7 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
           </a>
           <a routerLink="/streaks" routerLinkActive="active" (click)="closeMobileMenu()">
             <span class="nav-icon">🔥</span>
-            <span class="nav-text">Streaks</span>
+            <span class="nav-text">{{ 'nav.streaks' | translate }}</span>
           </a>
           
           <div class="nav-controls">
