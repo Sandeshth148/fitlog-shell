@@ -16,5 +16,9 @@ export const routes: Routes = [
       remoteName: 'fitlog-streaks',
       exposedModule: './Component'
     }).then(m => m.StreaksComponent)
+  },
+  {
+    path: 'trends',
+    loadComponent: () => import('./features/weight-tracker/pages/charts/charts.component').then(m => m.ChartsComponent)
   }
 ];
