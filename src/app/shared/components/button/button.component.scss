@@ -1,0 +1,94 @@
+// Button base styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Button sizes
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-md {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+// Button variants
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-dark, #3730a3);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--color-primary-darker, #312e81);
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-light, #e0e7ff);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--color-primary-lighter, #c7d2fe);
+  }
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-text);
+  
+  &:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  [data-theme="dark"] & {
+    &:hover:not(:disabled) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
+
+// Full width button
+.btn-full-width {
+  width: 100%;
+}

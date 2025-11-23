@@ -10,8 +10,9 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-architects/native-federation": "^20.0.1",
+    "@angular-architects/native-federation": "^19.0.23",
     "@angular/animations": "^19.2.0",
+    "@angular/cdk": "^19.2.0",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
@@ -20,7 +21,10 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@softarc/native-federation-node": "^2.0.10",
+    "chart.js": "^4.5.1",
     "es-module-shims": "^1.5.12",
+    "idb": "^8.0.3",
+    "ng2-charts": "^8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -36,6 +40,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "vite": "^6.0.0"
   }
 }

@@ -1,1 +1,123 @@
 /* You can add global styles to this file, and also import other style files */
+@use './styles/themes';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container for page content */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Responsive typography */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.875rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive form elements */
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive grid system */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+}
+
+.col {
+  flex: 1;
+  padding: 0 0.5rem;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  .row {
+    flex-direction: column;
+  }
+  
+  .col {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+  }
+}

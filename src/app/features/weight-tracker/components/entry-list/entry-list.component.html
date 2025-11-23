@@ -1,0 +1,36 @@
+<div class="entry-list-container">
+  <h3 *ngIf="entries.length > 0">{{ 'home.recentEntries' | translate }}</h3>
+  <ul class="entry-list" *ngIf="entries.length > 0; else noEntries">
+    <li *ngFor="let entry of entries; trackBy: trackById" class="entry-item">
+      <div class="entry-details">
+        <div class="entry-date-time">
+          <span class="entry-date">{{ entry.date | date: 'mediumDate' }}</span>
+          <span class="entry-time" *ngIf="entry.time">{{ entry.time }}</span>
+        </div>
+        <span class="entry-weight" [attr.data-unit]="entry.units || 'kg'">{{ entry.weightKg.toFixed(1) }}</span>
+        
+        <!-- BMI Display -->
+        <div class="entry-bmi" *ngIf="hasHeight && entry.bmi && showBmi">
+          <app-bmi-display 
+            [bmi]="entry.bmi" 
+            [heightCm]="userHeight"
+            [showIdealWeight]="false">
+          </app-bmi-display>
+        </div>
+        
+        <span class="entry-notes" *ngIf="entry.notes">{{ entry.notes }}</span>
+      </div>
+      <div class="entry-actions">
+        <app-button (clicked)="entryEdited.emit(entry)" variant="ghost" size="sm">{{ 'form.edit' | translate }}</app-button>
+        <app-button (clicked)="entryDeleted.emit(entry.id)" variant="ghost" size="sm" class="delete-btn">{{ 'form.delete' | translate }}</app-button>
+      </div>
+    </li>
+  </ul>
+
+  <ng-template #noEntries>
+    <div class="no-entries-placeholder">
+      <p>{{ 'home.noEntries' | translate }}</p>
+      <p>{{ 'home.getStarted' | translate }}</p>
+    </div>
+  </ng-template>
+</div>

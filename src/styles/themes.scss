@@ -1,0 +1,33 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1f2937;
+  --color-primary: #3b82f6; /* More professional blue */
+  --color-primary-dark: #2563eb;
+  --color-primary-darker: #1d4ed8;
+  --color-primary-light: #dbeafe;
+  --color-primary-lighter: #eff6ff;
+  --color-primary-rgb: 59, 130, 246;
+  --color-accent: #64748b; /* Slate gray instead of yellow */
+  --color-accent-dark: #475569;
+  --color-danger: #ef4444;
+  --color-border: #e2e8f0;
+  --color-bg-offset: #f8fafc;
+  --color-text-secondary: #64748b;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0f172a; /* Darker background */
+  --color-text: #f8fafc;
+  --color-primary: #60a5fa; /* Lighter blue for dark mode */
+  --color-primary-dark: #3b82f6;
+  --color-primary-darker: #2563eb;
+  --color-primary-light: #93c5fd;
+  --color-primary-lighter: #bfdbfe;
+  --color-primary-rgb: 96, 165, 250;
+  --color-accent: #94a3b8; /* Slate gray for dark mode */
+  --color-accent-dark: #64748b;
+  --color-danger: #f87171;
+  --color-border: #334155;
+  --color-bg-offset: #1e293b;
+  --color-text-secondary: #94a3b8;
+}

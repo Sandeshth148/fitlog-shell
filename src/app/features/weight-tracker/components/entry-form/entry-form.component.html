@@ -1,0 +1,57 @@
+<form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="entry-form">
+  <div class="form-header">
+    <h2>{{ entry ? 'Edit' : 'Add' }} Weight Entry</h2>
+  </div>
+
+  <div class="form-field">
+    <label for="date">Date</label>
+    <input id="date" type="date" formControlName="date" [min]="minDate" [max]="today">
+    <div class="date-range-hint">Valid range: {{ dateValidationService.formatDate(minDate) }} to {{ dateValidationService.formatDate(today) }}</div>
+    <div *ngIf="entryForm.get('date')?.touched && entryForm.get('date')?.invalid" class="validation-error">
+      <span *ngIf="entryForm.get('date')?.errors?.['required']">Date is required.</span>
+      <span *ngIf="entryForm.get('date')?.errors?.['dateRange']">Date must be between {{ dateValidationService.formatDate(minDate) }} and today.</span>
+    </div>
+  </div>
+
+  <div class="form-field-group">
+    <div class="form-field weight-field">
+      <label for="weight">Weight</label>
+      <input 
+        id="weight" 
+        type="number" 
+        formControlName="weight" 
+        step="0.1" 
+        min="0"
+        max="500"
+        placeholder="0.0"
+        inputmode="decimal"
+        pattern="[0-9]*\.?[0-9]*"
+      >
+    </div>
+    <div class="form-field units-field">
+      <label for="units">Units</label>
+      <select id="units" formControlName="units">
+        <option value="kg">kg</option>
+        <option value="lb">lb</option>
+      </select>
+    </div>
+  </div>
+  <div *ngIf="entryForm.get('weight')?.touched && entryForm.get('weight')?.invalid" class="validation-error">
+    A valid, positive weight is required.
+  </div>
+
+  <div class="form-field">
+    <label for="time">Time (optional)</label>
+    <input id="time" type="time" formControlName="time">
+  </div>
+
+  <div class="form-field">
+    <label for="notes">Notes (optional)</label>
+    <textarea id="notes" formControlName="notes" rows="3"></textarea>
+  </div>
+
+  <div class="form-actions">
+    <app-button type="button" variant="secondary" (clicked)="onCancel()">Cancel</app-button>
+    <app-button type="submit" variant="primary" [disabled]="entryForm.invalid">Save Entry</app-button>
+  </div>
+</form>

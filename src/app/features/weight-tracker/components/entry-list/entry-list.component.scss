@@ -1,0 +1,266 @@
+.entry-list-container {
+  width: 100%;
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 300px;
+
+  h3 {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      // width: 50px;
+      // height: 3px;
+      // background-color: var(--color-primary);
+      // border-radius: 2px;
+    }
+  }
+}
+
+/* Virtual scroll viewport */
+.entry-list-viewport {
+  height: 600px; /* Fixed height for virtual scrolling */
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    height: calc(100vh - 250px); /* Adjust for mobile screens */
+  }
+  
+  /* Override CDK virtual scroll default styles */
+  ::ng-deep .cdk-virtual-scroll-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    width: 100%; /* Ensure content wrapper takes full width */
+  }
+  
+  /* Ensure viewport itself takes full width */
+  ::ng-deep .cdk-virtual-scroll-viewport {
+    width: 100%;
+  }
+}
+
+.entry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.entry-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--color-bg);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y; /* Allow vertical scrolling but handle horizontal swipes */
+  width: 100%; /* Ensure entry takes full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  }
+  
+  /* Swipe animations */
+  &.swiping-left {
+    animation: swipe-left 0.3s forwards;
+  }
+  
+  &.swiping-right {
+    animation: swipe-right 0.3s forwards;
+  }
+}
+
+/* Swipe action indicators */
+.swipe-action {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  
+  .swipe-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .swipe-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.swipe-action-left {
+  background-color: rgba(239, 68, 68, 0.9); /* Red background */
+  color: white;
+  left: 0;
+}
+
+.swipe-action-right {
+  background-color: rgba(59, 130, 246, 0.9); /* Blue background */
+  color: white;
+  right: 0;
+}
+
+.swiping-left .swipe-action-left,
+.swiping-right .swipe-action-right {
+  opacity: 1;
+}
+
+/* Swipe animations */
+@keyframes swipe-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes swipe-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.entry-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  z-index: 1; /* Ensure it's above the swipe actions */
+  
+  @media (max-width: 640px) {
+    width: 100%;
+    min-height: 80px; /* Ensure enough touch area */
+  }
+}
+
+.entry-date-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.entry-date {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.entry-time {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  background-color: var(--color-primary-lighter);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+.entry-weight {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: baseline;
+  
+  &:after {
+    content: attr(data-unit);
+    font-size: 1rem;
+    margin-left: 0.25rem;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+}
+
+.entry-notes {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.entry-actions {
+  display: flex;
+  gap: 0.75rem;
+  z-index: 1; /* Ensure it's above the swipe actions */
+  
+  @media (max-width: 640px) {
+    width: 100%;
+    justify-content: flex-end;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    
+    /* Make buttons larger on mobile for better touch targets */
+    app-button ::ng-deep button {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+.delete-btn {
+  color: var(--color-danger, #ef4444);
+
+  &:hover:not(:disabled) {
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+}
+
+.no-entries-placeholder {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: var(--color-bg);
+  border-radius: 12px;
+  color: var(--color-text-secondary);
+  border: 2px dashed var(--color-border);
+  margin-top: 2rem;
+  
+  p {
+    margin: 0.5rem 0;
+    
+    &:first-child {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+  }
+}

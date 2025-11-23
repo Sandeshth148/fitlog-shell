@@ -1,0 +1,174 @@
+<div class="profile-setup-container">
+  <div class="profile-setup-card">
+    <header class="setup-header">
+      <h1>{{ 'setup.title' | translate }}</h1>
+      <p>{{ 'setup.intro' | translate }}</p>
+    </header>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="setup-form">
+      
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name" class="form-label">
+          {{ 'profile.name' | translate }} <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-input"
+          [class.error]="hasError('name')"
+          [placeholder]="'profile.namePlaceholder' | translate"
+          autocomplete="name"
+        />
+        @if (hasError('name')) {
+          <span class="error-message">{{ getErrorMessage('name') }}</span>
+        }
+      </div>
+
+      <!-- Age Field (Optional) -->
+      <div class="form-group">
+        <label for="age" class="form-label">
+          {{ 'profile.age' | translate }}
+          <span class="optional">({{ 'profile.optional' | translate }})</span>
+        </label>
+        <input
+          type="number"
+          id="age"
+          formControlName="age"
+          class="form-input"
+          [class.error]="hasError('age')"
+          [placeholder]="'profile.agePlaceholder' | translate"
+          min="1"
+          max="150"
+        />
+        @if (hasError('age')) {
+          <span class="error-message">{{ getErrorMessage('age') }}</span>
+        }
+      </div>
+
+      <!-- Height Unit Selection -->
+      <div class="form-group">
+        <label class="form-label">
+          {{ 'form.height' | translate }} <span class="required">*</span>
+        </label>
+        <div class="unit-selector">
+          <button
+            type="button"
+            class="unit-btn"
+            [class.active]="heightUnit() === 'cm'"
+            (click)="profileForm.patchValue({ heightUnit: 'cm' })">
+            {{ 'form.centimeters' | translate }}
+          </button>
+          <button
+            type="button"
+            class="unit-btn"
+            [class.active]="heightUnit() === 'ft'"
+            (click)="profileForm.patchValue({ heightUnit: 'ft' })">
+            {{ 'form.feetInches' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Height in Centimeters -->
+      @if (heightUnit() === 'cm') {
+        <div class="form-group">
+          <label for="heightCm" class="form-label">
+            {{ 'form.heightCm' | translate }}
+          </label>
+          <div class="input-with-unit">
+            <input
+              type="number"
+              id="heightCm"
+              formControlName="heightCm"
+              class="form-input"
+              [class.error]="hasError('heightCm')"
+              placeholder="170"
+              min="50"
+              max="300"
+              step="0.1"
+            />
+            <span class="unit-label">cm</span>
+          </div>
+          @if (hasError('heightCm')) {
+            <span class="error-message">{{ getErrorMessage('heightCm') }}</span>
+          }
+        </div>
+      }
+
+      <!-- Height in Feet and Inches -->
+      @if (heightUnit() === 'ft') {
+        <div class="form-group">
+          <div class="height-feet-inches">
+            <div class="height-input-group">
+              <label for="heightFeet" class="form-label">
+                {{ 'form.feet' | translate }}
+              </label>
+              <div class="input-with-unit">
+                <input
+                  type="number"
+                  id="heightFeet"
+                  formControlName="heightFeet"
+                  class="form-input"
+                  [class.error]="hasError('heightFeet')"
+                  placeholder="5"
+                  min="1"
+                  max="9"
+                />
+                <span class="unit-label">ft</span>
+              </div>
+              @if (hasError('heightFeet')) {
+                <span class="error-message">{{ getErrorMessage('heightFeet') }}</span>
+              }
+            </div>
+
+            <div class="height-input-group">
+              <label for="heightInches" class="form-label">
+                {{ 'form.inches' | translate }}
+              </label>
+              <div class="input-with-unit">
+                <input
+                  type="number"
+                  id="heightInches"
+                  formControlName="heightInches"
+                  class="form-input"
+                  [class.error]="hasError('heightInches')"
+                  placeholder="7"
+                  min="0"
+                  max="11"
+                />
+                <span class="unit-label">in</span>
+              </div>
+              @if (hasError('heightInches')) {
+                <span class="error-message">{{ getErrorMessage('heightInches') }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Error Message -->
+      @if (errorMessage()) {
+        <div class="alert alert-error">
+          {{ errorMessage() }}
+        </div>
+      }
+
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <app-button
+          type="submit"
+          [disabled]="profileForm.invalid || isSubmitting()"
+          size="lg"
+          class="submit-btn">
+          {{ isSubmitting() ? ('common.saving' | translate) : ('common.save' | translate) }}
+        </app-button>
+      </div>
+
+      <!-- Help Text -->
+      <p class="help-text">
+        {{ 'form.heightDescription' | translate }}
+      </p>
+    </form>
+  </div>
+</div>

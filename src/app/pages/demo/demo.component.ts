@@ -28,16 +28,16 @@ export class DemoComponent {
         throw new Error('MFE container not ready');
       }
 
-      const module = await this.microfrontendService.loadRemoteComponent(4201, 'movie-list');
+      const module = await this.microfrontendService.loadRemoteComponent(4202, 'fitlog-weight-tracker');
       this.mfeContainer.clear();
       this.componentRef = this.mfeContainer.createComponent(module.AppComponent);
       this.componentRef.changeDetectorRef.detectChanges();
       
       this.mfeLoaded.set(true);
-      console.log('✅ MFE loaded successfully from movie-list');
+      console.log('✅ MFE loaded successfully from fitlog-weight-tracker');
     } catch (err: any) {
       console.error('❌ Failed to load MFE:', err);
-      this.error.set('Failed to load MFE. Is movie-list running on port 4201?');
+      this.error.set('Failed to load MFE. Is fitlog-weight-tracker running on port 4202?');
     } finally {
       this.loading.set(false);
     }
