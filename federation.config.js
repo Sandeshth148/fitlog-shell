@@ -2,11 +2,17 @@ const { withNativeFederation, shareAll } = require('@angular-architects/native-f
 
 module.exports = withNativeFederation({
 
+  name: 'fitlog-shell',
+
+  exposes: {
+    './TranslationService': './src/app/core/services/translation.service.ts',
+  },
+
   shared: {
-    ...shareAll({ 
-      singleton: true, 
+    ...shareAll({
+      singleton: true,
       strictVersion: false,  // Allow minor version differences (19.2.0 works with 19.2.3)
-      requiredVersion: 'auto' 
+      requiredVersion: 'auto'
     }),
   },
 
@@ -20,5 +26,5 @@ module.exports = withNativeFederation({
 
   // Please read our FAQ about sharing libs:
   // https://shorturl.at/jmzH0
-  
+
 });
