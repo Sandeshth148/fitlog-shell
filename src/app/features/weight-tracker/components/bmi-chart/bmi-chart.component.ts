@@ -291,6 +291,9 @@ export class BmiChartComponent implements OnInit, AfterViewInit {
         callbacks: {
           label: function(context) {
             const bmi = context.parsed.y;
+            if (bmi === null || bmi === undefined) {
+              return 'BMI: N/A';
+            }
             let category = '';
             
             if (bmi < 18.5) {
