@@ -202,7 +202,7 @@ export class TranslationService {
         }
       },
       hi: {
-        nav: { home: 'होम', trends: 'रुझान', streaks: 'Streaks', weight: 'वजन' },
+        nav: { home: 'होम', trends: 'रुझान', streaks: 'स्ट्रीक्स', weight: 'वजन' },
         home: { title: 'वजन ट्रैकर', subtitle: 'आपका व्यक्तिगत वजन ट्रैकिंग सहायक।', addEntry: 'एंट्री जोड़ें', noEntries: 'अभी तक कोई वजन एंट्री नहीं', getStarted: 'शुरू करने के लिए अपनी पहली वजन एंट्री जोड़ें!', recentEntries: 'हाल की एंट्रीज' },
         trends: { title: 'स्वास्थ्य रुझान', subtitle: 'अपनी प्रगति को ट्रैक करें और समय के साथ अपनी फिटनेस यात्रा को देखें।', weightTrend: 'वजन रुझान', bmiTrend: 'बीएमआई रुझान', noData: 'चयनित समय सीमा के लिए कोई डेटा उपलब्ध नहीं।', addEntries: 'अपना रुझान देखने के लिए कुछ वजन एंट्री जोड़ें!' },
         stats: { average: 'औसत', current: 'वर्तमान', gained: 'बढ़ा', lost: 'घटा', increased: 'बढ़ा', decreased: 'घटा', idealRange: 'आदर्श सीमा', status: 'स्थिति', averageBmi: 'औसत बीएमआई', currentBmi: 'वर्तमान बीएमआई' },
@@ -354,12 +354,12 @@ export class TranslationService {
           yourHeight: 'ನಿಮ್ಮ ಎತ್ತರ',
           saveHeight: 'ಎತ್ತರವನ್ನು ಉಳಿಸಿ'
         },
-        footer: { copyright: '© {{year}} FitLog. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ।', tagline: 'ನಿಮ್ಮ ಫಿಟ್ನೆಸ್ ಪ್ರಯಾಣವನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ, ಒಂದೊಂದು ಎಂಟ್ರಿ।' },
-        pwa: { installTitle: 'FitLog ಇನ್ಸ್ಟಾಲ್ ಮಾಡಿ', installSubtitle: 'ಪೂರ್ಣ ಅಪ್ಲಿಕೇಶನ್ ಅನುಭವವನ್ನು ಪಡೆಯಿರಿ', installButton: 'ಅಪ್ಲಿಕೇಶನ್ ಇನ್ಸ್ಟಾಲ್ ಮಾಡಿ' }
+        footer: { copyright: ' FitLog. ', tagline: '' },
+        pwa: { installTitle: '', installSubtitle: '', installButton: '' }
       },
       ta: {
-        nav: { home: 'முகப்பு', trends: 'போக்குகள்', streaks: 'Streaks', weight: 'எடை' },
-        home: { title: 'எடை கண்காணிப்பு', addEntry: 'பதிவு சேர்க்கவும்', noEntries: 'இன்னும் எடை பதிவுகள் இல்லை', getStarted: 'தொடங்க உங்கள் முதல் எடை பதிவைச் சேர்க்கவும்!' },
+        nav: { home: 'முகப்பு', trends: 'போக்குகள்', streaks: 'ஸ்ட்ரீக்ஸ்', weight: 'எடை' },
+        home: { title: 'எடை கண்காணிப்பு', addEntry: 'பதிவு சேர்க்கவும்', noEntries: 'இன்னும் எடை பதிவுகள் இல்லை', getStarted: 'தொடங்க உங்கள் முதல் எடை பதிவைச் சேர்க்கவும்!', recentEntries: 'சமீபத்திய பதிவுகள்' },
         trends: { title: 'உடல்நலப் போக்குகள்', subtitle: 'உங்கள் முன்னேற்றத்தைக் கண்காணித்து, காலப்போக்கில் உங்கள் உடற்பயிற்சி பயணத்தைக் காட்சிப்படுத்துங்கள்।', weightTrend: 'எடை போக்கு', bmiTrend: 'BMI போக்கு', noData: 'தேர்ந்தெடுக்கப்பட்ட நேர வரம்பிற்கு தரவு இல்லை।', addEntries: 'உங்கள் போக்கைப் பார்க்க சில எடை பதிவுகளைச் சேர்க்கவும்!' },
         stats: { average: 'சராசரி', current: 'தற்போதைய', gained: 'அதிகரித்தது', lost: 'இழந்தது', increased: 'அதிகரித்தது', decreased: 'குறைந்தது', idealRange: 'சிறந்த வரம்பு', status: 'நிலை', averageBmi: 'சராசரி BMI', currentBmi: 'தற்போதைய BMI' },
         bmi: { underweight: 'குறைந்த எடை', normal: 'சாதாரண', overweight: 'அதிக எடை', obese: 'உடல்பருமன்' },
@@ -513,7 +513,7 @@ export class TranslationService {
         pwa: { installTitle: 'FitLog ఇన్స్టాల్ చేయండి', installSubtitle: 'పూర్తి యాప్ అనుభవాన్ని పొందండి', installButton: 'యాప్ ఇన్స్టాల్ చేయండి' }
       },
       fr: {
-        nav: { home: 'Accueil', trends: 'Tendances', streaks: 'Streaks', weight: 'Poids' },
+        nav: { home: 'Accueil', trends: 'Tendances', streaks: 'Séries', weight: 'Poids' },
         home: { title: 'Suivi du Poids', addEntry: 'Ajouter une Entrée', noEntries: 'Aucune entrée de poids pour le moment', getStarted: 'Ajoutez votre première entrée de poids pour commencer!' },
         trends: { title: 'Tendances Santé', subtitle: 'Suivez vos progrès et visualisez votre parcours fitness au fil du temps.', weightTrend: 'Tendance du Poids', bmiTrend: 'Tendance IMC', noData: 'Aucune donnée disponible pour la plage de temps sélectionnée.', addEntries: 'Ajoutez quelques entrées de poids pour voir votre tendance!' },
         stats: { average: 'Moyenne', current: 'Actuel', gained: 'Gagné', lost: 'Perdu', increased: 'Augmenté', decreased: 'Diminué', idealRange: 'Plage Idéale', status: 'Statut', averageBmi: 'IMC Moyen', currentBmi: 'IMC Actuel' },
@@ -569,7 +569,7 @@ export class TranslationService {
         pwa: { installTitle: 'Installer FitLog', installSubtitle: 'Obtenez l\'expérience complète de l\'application', installButton: 'Installer l\'App' }
       },
       de: {
-        nav: { home: 'Startseite', trends: 'Trends', streaks: 'Streaks', weight: 'Gewicht' },
+        nav: { home: 'Startseite', trends: 'Trends', streaks: 'Serien', weight: 'Gewicht' },
         home: { title: 'Gewichts-Tracker', addEntry: 'Eintrag hinzufügen', noEntries: 'Noch keine Gewichtseinträge', getStarted: 'Fügen Sie Ihren ersten Gewichtseintrag hinzu, um zu beginnen!' },
         trends: { title: 'Gesundheitstrends', subtitle: 'Verfolgen Sie Ihren Fortschritt und visualisieren Sie Ihre Fitness-Reise über die Zeit.', weightTrend: 'Gewichtstrend', bmiTrend: 'BMI-Trend', noData: 'Keine Daten für den ausgewählten Zeitraum verfügbar.', addEntries: 'Fügen Sie einige Gewichtseinträge hinzu, um Ihren Trend zu sehen!' },
         stats: { average: 'Durchschnitt', current: 'Aktuell', gained: 'Zugenommen', lost: 'Verloren', increased: 'Gestiegen', decreased: 'Gesunken', idealRange: 'Idealbereich', status: 'Status', averageBmi: 'Durchschnittlicher BMI', currentBmi: 'Aktueller BMI' },
