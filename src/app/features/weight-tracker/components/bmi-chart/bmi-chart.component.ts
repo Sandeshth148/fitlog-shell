@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Chart, ChartConfiguration, ChartType, TimeScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart, ChartConfiguration, ChartType, TimeScale, LinearScale, PointElement, LineElement, LineController, Title, Tooltip, Legend } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import { ChartService } from '../../services/chart.service';
 import { UserService } from '../../../../core/services/user.service';
@@ -8,7 +8,7 @@ import { TranslatePipe } from '../../../../core/pipes/translate.pipe';
 import { TranslationService } from '../../../../core/services/translation.service';
 
 // Register Chart.js components
-Chart.register(TimeScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+Chart.register(TimeScale, LinearScale, PointElement, LineElement, LineController, Title, Tooltip, Legend);
 
 @Component({
   selector: 'app-bmi-chart',
