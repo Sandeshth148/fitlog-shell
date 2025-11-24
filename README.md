@@ -1,75 +1,100 @@
-# 🏋️ FitLog Shell
+# 🏋️ FitLog MFE - Micro-Frontend Fitness Tracking App
 
-**The Host Application for FitLog Micro-Frontend Ecosystem**
+**Your AI-Powered Fitness Companion**
 
-[![Angular](https://img.shields.io/badge/Angular-19.2.0-red.svg)](https://angular.io/)
-[![Native Federation](https://img.shields.io/badge/Native%20Federation-20.0.1-blue.svg)](https://www.npmjs.com/package/@angular-architects/native-federation)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7.2-blue.svg)](https://www.typescriptlang.org/)
-
----
-
-## 📖 **Table of Contents**
-
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Micro-Frontends](#micro-frontends)
-- [Development](#development)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
+[![Angular](https://img.shields.io/badge/Angular-19.2.0-red)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
+[![Native Federation](https://img.shields.io/badge/Native%20Federation-2.0-green)](https://www.npmjs.com/package/@angular-architects/native-federation)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 ---
 
-## 🎯 **Overview**
+## 🎯 Project Overview
 
-FitLog Shell is the **host application** that orchestrates multiple micro-frontends (MFEs) in the FitLog ecosystem. It provides:
+FitLog is a modern, **micro-frontend architecture** fitness tracking application built with Angular 19 and Native Federation. Track your weight, build healthy habits with streaks, visualize your progress with charts, and get AI-powered insights!
 
-- 🏠 **Unified Entry Point** - Single application that loads all features
-- 🔌 **Dynamic Loading** - Micro-frontends loaded on-demand
-- 🎨 **Consistent UI** - Shared navigation and theming
-- 🚀 **Independent Deployment** - Each MFE can be deployed separately
-- 📦 **Modular Architecture** - Features are isolated and maintainable
+### **Live Demo**
+🌐 Coming soon! (Deploying to Netlify)
 
 ---
 
-## 🏗️ **Architecture**
+## ✨ Features
 
-### **Micro-Frontend Pattern**
+### **📊 Weight Tracker**
+- Track daily weight entries
+- Calculate BMI automatically
+- View weight history
+- Multi-language support (8 languages)
+- Offline-first with IndexedDB
 
-FitLog uses **Native Federation** (Angular's built-in module federation) to implement a micro-frontend architecture:
+### **🔥 Streaks**
+- Daily check-in system
+- Streak counter with calendar heatmap
+- Gamification (badges, levels, XP)
+- Motivational messages
+- Separate micro-frontend (Port 4204)
+
+### **📈 Trends & Charts**
+- Interactive weight trend chart
+- BMI trend visualization
+- Time range filters (1M, 3M, 6M, 1Y, All)
+- Statistics cards (average, change, current)
+- Ideal weight range indicators
+
+### **🤖 AI Insights** (Coming Soon!)
+- Personalized daily insights
+- Health status assessment
+- Progress recognition
+- Smart recommendations
+- Powered by Google Gemini API
+
+---
+
+## 🏗️ Architecture
+
+### **Micro-Frontend Structure**
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    FitLog Shell (Port 4200)              │
-│                      Host Application                    │
-├─────────────────────────────────────────────────────────┤
-│  Navigation │ Routing │ Shared Services │ Theme         │
-└────────┬────────────────────────────────────────────────┘
-         │
-         ├──► Weight Tracker MFE (Port 4202)
-         ├──► Streaks MFE (Port 4203)
-         ├──► Fasting Tracker MFE (Port 4204)
-         ├──► AI Chatbot MFE (Port 4205)
-         └──► AI Insights MFE (Port 4206)
+FitLog MFE
+├── fitlog-shell (Port 4200)          # Shell application
+│   ├── Weight Tracker (local)
+│   ├── Trends/Charts (local)
+│   ├── Setup page
+│   └── Home dashboard
+│
+├── fitlog-streaks (Port 4204)        # Streaks MFE (federated)
+│   └── Daily habit tracking
+│
+└── fitlog-ai-insights (Coming Soon)  # AI features MFE
+    └── Personalized insights
 ```
 
-### **Key Benefits**
+### **Technology Stack**
 
-1. **Independent Development** - Teams can work on different features simultaneously
-2. **Technology Flexibility** - Each MFE can use different versions/libraries
-3. **Scalability** - Features can be scaled independently
-4. **Faster Deployments** - Deploy one feature without affecting others
-5. **Better Performance** - Load only what's needed, when needed
+**Frontend:**
+- Angular 19.2.0 (Standalone components)
+- Native Federation (Module Federation)
+- Chart.js 4.5.1 + chartjs-adapter-date-fns
+- TypeScript 5.7 (strict mode)
+- SCSS for styling
+
+**Storage:**
+- IndexedDB (via idb package)
+- LocalStorage (profile backup)
+- Offline-first architecture
+
+**State Management:**
+- Angular Signals (reactive)
+- Services with RxJS
+- Shared state via federation
 
 ---
 
-## 🚀 **Getting Started**
+## 🚀 Quick Start
 
 ### **Prerequisites**
-
-- Node.js 18+ and npm
-- Angular CLI 19.2+
+- Node.js 20.x or higher
+- npm 10.x or higher
 - Git
 
 ### **Installation**
@@ -86,127 +111,309 @@ npm install
 npm start
 ```
 
-The application will be available at `http://localhost:4200/`
+The app will be available at `http://localhost:4200`
 
----
-
-## 📁 **Project Structure**
-
-```
-fitlog-shell/
-├── src/
-│   ├── app/
-│   │   ├── pages/
-│   │   │   ├── home/              # Landing page
-│   │   │   └── demo/              # MFE demo page
-│   │   ├── micro-frontend.service.ts  # MFE loader service
-│   │   ├── app.component.*        # Root component
-│   │   ├── app.routes.ts          # Application routes
-│   │   └── app.config.ts          # App configuration
-│   ├── main.ts                    # Bootstrap with federation
-│   └── bootstrap.ts               # Application bootstrap
-├── public/
-│   └── federation.manifest.json   # MFE registry
-├── federation.config.js           # Federation configuration
-├── angular.json                   # Angular CLI config
-├── package.json                   # Dependencies
-└── README.md                      # This file
-```
-
----
-
-## 🔌 **Micro-Frontends**
-
-### **Current MFEs**
-
-| Name | Port | Status | Description |
-|------|------|--------|-------------|
-| **fitlog-shell** | 4200 | ✅ Active | Host application |
-| **movie-list** | 4201 | ✅ Demo | Example MFE for testing |
-
-### **Planned MFEs**
-
-| Name | Port | Status | Description |
-|------|------|--------|-------------|
-| **fitlog-weight-tracker** | 4202 | 🔜 Planned | Weight & BMI tracking |
-| **fitlog-streaks** | 4203 | 🔜 Planned | Daily habit streaks |
-| **fitlog-fasting** | 4204 | 🔜 Planned | Intermittent fasting timer |
-| **fitlog-ai-chatbot** | 4205 | 🔜 Planned | AI-powered fitness assistant |
-| **fitlog-ai-insights** | 4206 | 🔜 Planned | ML-based insights & predictions |
-
----
-
-## 💻 **Development**
-
-### **Running Locally**
+### **Running with Streaks MFE**
 
 ```bash
-# Start the shell application
+# Terminal 1: Start Shell
+cd fitlog-shell
 npm start
 
-# The app runs on http://localhost:4200/
+# Terminal 2: Start Streaks MFE
+cd fitlog-streaks
+npm start
 ```
 
-### **Testing MFE Integration**
-
-1. Start a micro-frontend (e.g., movie-list on port 4201)
-2. Navigate to `/demo` in the shell
-3. Click "Load Movie List MFE"
-4. The remote component will load dynamically
-
-### **Adding a New MFE**
-
-1. Create the MFE project (separate repository)
-2. Configure Native Federation
-3. Expose components via `federation.config.js`
-4. Load in shell using `MicroFrontendService`
+- Shell: `http://localhost:4200`
+- Streaks: `http://localhost:4204`
 
 ---
 
-## 🚢 **Deployment**
+## 📁 Project Structure
 
-### **Build for Production**
+```
+Phase-1-FitLog-MFE/
+├── fitlog-shell/                    # Main shell application
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── core/               # Core services & guards
+│   │   │   │   ├── guards/         # Route guards
+│   │   │   │   ├── pipes/          # Custom pipes
+│   │   │   │   └── services/       # Shared services
+│   │   │   ├── features/           # Feature modules
+│   │   │   │   └── weight-tracker/ # Weight tracking feature
+│   │   │   │       ├── components/ # Charts, forms
+│   │   │   │       ├── pages/      # Home, setup, trends
+│   │   │   │       └── services/   # Feature services
+│   │   │   └── pages/              # Shell pages
+│   │   └── public/                 # Static assets
+│   │       └── federation.manifest.json
+│   ├── federation.config.js        # Federation configuration
+│   └── package.json
+│
+├── fitlog-streaks/                  # Streaks micro-frontend
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/         # Streak components
+│   │   │   ├── services/           # Streak services
+│   │   │   └── models/             # Data models
+│   │   └── public/
+│   ├── federation.config.js
+│   └── package.json
+│
+├── PROJECT-STATUS-NOV-2024.md       # Current status & roadmap
+├── DEPLOYMENT-CHECKLIST.md          # Deployment guide
+└── README.md                        # This file
+```
+
+---
+
+## 🎨 Features in Detail
+
+### **Weight Tracker**
+
+**Capabilities:**
+- Add weight entries with date validation
+- Automatic BMI calculation based on height
+- View weight history in table format
+- Edit/delete existing entries
+- Export data (coming soon)
+
+**Validations:**
+- Height must be set before tracking weight
+- Date cannot be in the future
+- One entry per day
+- Weight range: 20-300 kg
+
+### **Streaks**
+
+**Gamification System:**
+- **XP System:** Earn 10 XP per check-in
+- **Levels:** Progress through 10 levels
+- **Badges:** Unlock achievements
+  - 🔥 First Check-in
+  - 🎯 3-Day Streak
+  - 💪 7-Day Streak
+  - 🏆 30-Day Streak
+  - 👑 100-Day Streak
+
+**Calendar Heatmap:**
+- Visual representation of check-ins
+- Color intensity based on consistency
+- Monthly view with navigation
+
+### **Trends & Charts**
+
+**Weight Chart:**
+- Line chart with time-series data
+- Ideal weight range visualization
+- Statistics: average, change, current
+- Responsive design
+
+**BMI Chart:**
+- BMI trend over time
+- Category indicators (underweight, normal, overweight, obese)
+- BMI change tracking
+
+**Time Ranges:**
+- 1 Month (30 days)
+- 3 Months (90 days)
+- 6 Months (180 days)
+- 1 Year (365 days)
+- All Time (5 years max)
+
+---
+
+## 🌍 Multi-Language Support
+
+**Supported Languages:**
+- 🇬🇧 English
+- 🇮🇳 Hindi (हिंदी)
+- 🇮🇳 Kannada (ಕನ್ನಡ)
+- 🇮🇳 Telugu (తెలుగు)
+- 🇮🇳 Tamil (தமிழ்)
+- 🇫🇷 French (Français)
+- 🇩🇪 German (Deutsch)
+- 🇪🇸 Spanish (Español)
+
+**Translation Coverage:**
+- Navigation & UI labels
+- Feature-specific content
+- Error messages
+- Success notifications
+- Fallback to English for missing keys
+
+---
+
+## 🔧 Development
+
+### **Available Scripts**
 
 ```bash
-npm run build
+# Development
+npm start              # Start dev server (port 4200)
+npm run build          # Production build
+npm run watch          # Build in watch mode
+npm test               # Run unit tests
+npm run lint           # Lint code
+
+# Federation
+npm run serve:prod     # Serve production build
 ```
 
-Build artifacts will be in `dist/fitlog-shell/`
+### **Build Configuration**
 
-### **Deployment Options**
+**Development:**
+- Source maps enabled
+- Hot module replacement
+- Fast refresh
 
-- **GitHub Pages** - Free hosting for static sites
-- **Vercel/Netlify** - Automatic deployments on push
-- **Docker** - Containerized deployment
-- **Cloud Providers** - AWS, Azure, GCP
-
----
-
-## 🤝 **Contributing**
-
-This is a personal project, but suggestions and feedback are welcome!
-
----
-
-## 📄 **License**
-
-Private project - All rights reserved
+**Production:**
+- Optimized bundles
+- Tree shaking
+- Minification
+- Source maps disabled
+- Output hashing
 
 ---
 
-## 👨‍💻 **Author**
+## 📦 Deployment
 
-**Sandesh**
+### **Netlify (Recommended)**
+
+```bash
+# Build settings
+Build command: npm run build
+Publish directory: dist/fitlog-shell/browser
+Node version: 20
+```
+
+**Deploy:**
+1. Connect GitHub repository
+2. Configure build settings
+3. Deploy!
+
+**Live URL:** `https://your-app.netlify.app`
+
+### **Vercel**
+
+```bash
+# Vercel auto-detects Angular
+vercel --prod
+```
+
+### **Cloudflare Pages**
+
+```bash
+# Build settings
+Build command: npm run build
+Build output: dist/fitlog-shell/browser
+```
+
+---
+
+## 🎯 Roadmap
+
+### **Phase 1: Foundation** ✅ (Completed)
+- ✅ Shell application
+- ✅ Weight Tracker
+- ✅ Streaks MFE
+- ✅ Trends/Charts
+- ✅ Multi-language support
+- ✅ Offline-first storage
+
+### **Phase 2: AI Integration** 🔄 (In Progress)
+- [ ] AI Insights feature
+- [ ] Daily Goals tracker
+- [ ] Enhanced dashboard UX
+- [ ] Gemini API integration
+- [ ] Personalized recommendations
+
+### **Phase 3: Backend** 🚀 (Planned)
+- [ ] NestJS backend
+- [ ] User authentication (OAuth)
+- [ ] Multi-device sync
+- [ ] Cloud storage
+- [ ] API gateway
+
+### **Phase 4: Advanced Features** 💡 (Future)
+- [ ] Fasting tracker MFE
+- [ ] AI chatbot
+- [ ] Social features
+- [ ] Data export/import
+- [ ] PWA support
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) first.
+
+### **Development Workflow**
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author
+
+**Sandesh T H**
 - GitHub: [@Sandeshth148](https://github.com/Sandeshth148)
+- Email: sandeshth148@gmail.com
 
 ---
 
-## 📚 **Learn More**
+## 🙏 Acknowledgments
 
-- [Angular Native Federation](https://www.npmjs.com/package/@angular-architects/native-federation)
-- [Micro-Frontend Architecture](https://micro-frontends.org/)
-- [Angular Documentation](https://angular.dev/)
+- Angular team for the amazing framework
+- Native Federation for micro-frontend support
+- Chart.js for beautiful visualizations
+- Google Gemini for AI capabilities
+- Open source community
 
 ---
 
-**Built with ❤️ and Angular**
+## 📚 Documentation
+
+- [Project Status](PROJECT-STATUS-NOV-2024.md) - Current status & roadmap
+- [Deployment Guide](DEPLOYMENT-CHECKLIST.md) - How to deploy
+- [Architecture](fitlog-shell/ARCHITECTURE.md) - Technical deep dive
+- [Federation Config](fitlog-shell/FEDERATION-CONFIG-EXPLAINED.md) - Module Federation details
+
+---
+
+## 🐛 Known Issues
+
+- Streaks MFE requires localhost:4204 in development
+- Chart.js time scale requires explicit registration
+- IndexedDB not supported in private browsing
+
+---
+
+## 💬 Support
+
+Having issues? Please check:
+1. [GitHub Issues](https://github.com/Sandeshth148/fitlog-shell/issues)
+2. [Documentation](PROJECT-STATUS-NOV-2024.md)
+3. Create a new issue if needed
+
+---
+
+## ⭐ Show Your Support
+
+Give a ⭐️ if this project helped you!
+
+---
+
+**Built with ❤️ using Angular 19 and Native Federation**
