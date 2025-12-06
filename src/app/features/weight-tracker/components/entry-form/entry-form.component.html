@@ -1,35 +1,28 @@
 <form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="entry-form">
   <div class="form-header">
-    <h2>{{ entry ? 'Edit' : 'Add' }} Weight Entry</h2>
+    <h2>{{ entry ? ('form.editWeightEntry' | translate) : ('form.addWeightEntry' | translate) }}</h2>
   </div>
 
   <div class="form-field">
-    <label for="date">Date</label>
+    <label for="date">{{ 'form.date' | translate }}</label>
     <input id="date" type="date" formControlName="date" [min]="minDate" [max]="today">
-    <div class="date-range-hint">Valid range: {{ dateValidationService.formatDate(minDate) }} to {{ dateValidationService.formatDate(today) }}</div>
+    <div class="date-range-hint">{{ 'form.validRange' | translate }} {{ dateValidationService.formatDate(minDate) }} {{
+      'form.to' | translate }} {{ dateValidationService.formatDate(today) }}</div>
     <div *ngIf="entryForm.get('date')?.touched && entryForm.get('date')?.invalid" class="validation-error">
-      <span *ngIf="entryForm.get('date')?.errors?.['required']">Date is required.</span>
-      <span *ngIf="entryForm.get('date')?.errors?.['dateRange']">Date must be between {{ dateValidationService.formatDate(minDate) }} and today.</span>
+      <span *ngIf="entryForm.get('date')?.errors?.['required']">{{ 'form.dateRequired' | translate }}</span>
+      <span *ngIf="entryForm.get('date')?.errors?.['dateRange']">{{ 'form.dateMustBeBetween' | translate }} {{
+        dateValidationService.formatDate(minDate) }} {{ 'form.andToday' | translate }}</span>
     </div>
   </div>
 
   <div class="form-field-group">
     <div class="form-field weight-field">
-      <label for="weight">Weight</label>
-      <input 
-        id="weight" 
-        type="number" 
-        formControlName="weight" 
-        step="0.1" 
-        min="0"
-        max="500"
-        placeholder="0.0"
-        inputmode="decimal"
-        pattern="[0-9]*\.?[0-9]*"
-      >
+      <label for="weight">{{ 'form.weight' | translate }}</label>
+      <input id="weight" type="number" formControlName="weight" step="0.1" min="0" max="500" placeholder="0.0"
+        inputmode="decimal" pattern="[0-9]*\.?[0-9]*">
     </div>
     <div class="form-field units-field">
-      <label for="units">Units</label>
+      <label for="units">{{ 'form.units' | translate }}</label>
       <select id="units" formControlName="units">
         <option value="kg">kg</option>
         <option value="lb">lb</option>
@@ -37,21 +30,22 @@
     </div>
   </div>
   <div *ngIf="entryForm.get('weight')?.touched && entryForm.get('weight')?.invalid" class="validation-error">
-    A valid, positive weight is required.
+    {{ 'form.weightRequired' | translate }}
   </div>
 
   <div class="form-field">
-    <label for="time">Time (optional)</label>
+    <label for="time">{{ 'form.time' | translate }}</label>
     <input id="time" type="time" formControlName="time">
   </div>
 
   <div class="form-field">
-    <label for="notes">Notes (optional)</label>
+    <label for="notes">{{ 'form.notesOptional' | translate }}</label>
     <textarea id="notes" formControlName="notes" rows="3"></textarea>
   </div>
 
   <div class="form-actions">
-    <app-button type="button" variant="secondary" (clicked)="onCancel()">Cancel</app-button>
-    <app-button type="submit" variant="primary" [disabled]="entryForm.invalid">Save Entry</app-button>
+    <app-button type="button" variant="secondary" (clicked)="onCancel()">{{ 'form.cancel' | translate }}</app-button>
+    <app-button type="submit" variant="primary" [disabled]="entryForm.invalid">{{ 'form.saveEntry' | translate
+      }}</app-button>
   </div>
 </form>

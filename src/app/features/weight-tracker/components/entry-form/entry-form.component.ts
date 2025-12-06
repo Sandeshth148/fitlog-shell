@@ -6,11 +6,12 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 import { DateValidationService } from '../../../../core/services/date-validation.service';
 import { StorageService } from '../../../../core/services/storage.service';
 import { ToastService } from '../../../../core/services/toast.service';
+import { TranslatePipe } from '../../../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-entry-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ButtonComponent],
+  imports: [CommonModule, ReactiveFormsModule, ButtonComponent, TranslatePipe],
   templateUrl: './entry-form.component.html',
   styleUrls: ['./entry-form.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
