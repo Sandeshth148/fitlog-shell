@@ -42,6 +42,10 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
             <span class="nav-icon">🔥</span>
             <span class="nav-text">{{ 'nav.streaks' | translate }}</span>
           </a>
+          <a routerLink="/ai-insights" routerLinkActive="active" (click)="closeMobileMenu()">
+            <span class="nav-icon">🤖</span>
+            <span class="nav-text">AI Insights</span>
+          </a>
           
           <div class="nav-controls">
             <app-theme-selector></app-theme-selector>

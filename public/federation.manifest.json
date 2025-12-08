@@ -1,3 +1,4 @@
 {
-    "fitlog-streaks": "http://localhost:4204/remoteEntry.json"
+    "fitlog-streaks": "http://localhost:4204/remoteEntry.json",
+    "fitlog-ai-insights": "http://localhost:4203/remoteEntry.json"
 }

@@ -28,5 +28,12 @@ export const routes: Routes = [
   {
     path: 'setup',
     loadComponent: () => import('./features/weight-tracker/pages/setup/setup.component').then(m => m.SetupComponent)
+  },
+  {
+    path: 'ai-insights',
+    loadComponent: () => loadRemoteModule({
+      remoteName: 'fitlog-ai-insights',
+      exposedModule: './InsightsComponent'
+    }).then(m => m.InsightsComponent)
   }
 ];
