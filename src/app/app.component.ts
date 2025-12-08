@@ -29,8 +29,8 @@ export class AppComponent {
         event instanceof NavigationCancel ||
         event instanceof NavigationError
       ) {
-        // Show skeleton for 2 seconds minimum for better UX
-        setTimeout(() => this.loadingService.hide(), 2000);
+        // Show skeleton for 1 second minimum for better UX
+        setTimeout(() => this.loadingService.hide(), 1000);
       }
     });
   }

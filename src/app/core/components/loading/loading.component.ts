@@ -7,19 +7,36 @@ import { LoadingService } from '../../services/loading.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="skeleton-container" *ngIf="loadingService.loading$ | async">
-      <div class="skeleton-header"></div>
-      <div class="skeleton-content">
-        <div class="skeleton-card"></div>
-        <div class="skeleton-card"></div>
-        <div class="skeleton-card"></div>
+    <div class="loading-overlay" *ngIf="loadingService.loading$ | async">
+      <div class="skeleton-container">
+        <div class="skeleton-header"></div>
+        <div class="skeleton-content">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
       </div>
     </div>
   `,
   styles: [`
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+
     .skeleton-container {
       padding: 1rem;
       max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
     }
 
