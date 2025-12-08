@@ -1,7 +1,7 @@
 {
-    "name": "FitLog - Weight Tracker",
+    "name": "FitLog - Fitness Tracker",
     "short_name": "FitLog",
-    "description": "Track your weight, monitor trends, and achieve your fitness goals with FitLog - a modern, offline-capable weight tracking app.",
+    "description": "Track your fitness journey, monitor trends, and achieve your health goals with FitLog - a modern, offline-capable fitness tracking app.",
     "theme_color": "#6366f1",
     "background_color": "#ffffff",
     "display": "standalone",

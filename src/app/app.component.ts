@@ -29,8 +29,8 @@ export class AppComponent {
         event instanceof NavigationCancel ||
         event instanceof NavigationError
       ) {
-        // Hide loading after a short delay to ensure smooth transition
-        setTimeout(() => this.loadingService.hide(), 300);
+        // Show skeleton for 2 seconds minimum for better UX
+        setTimeout(() => this.loadingService.hide(), 2000);
       }
     });
   }
