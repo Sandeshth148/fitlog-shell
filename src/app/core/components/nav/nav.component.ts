@@ -27,23 +27,49 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
         <!-- Navigation links and controls -->
         <div class="app-nav-links" [class.mobile-open]="mobileMenuOpen">
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">
-            <span class="nav-icon">🏠</span>
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </span>
             <span class="nav-text">{{ 'nav.home' | translate }}</span>
           </a>
           <a routerLink="/weight-tracker" routerLinkActive="active" (click)="closeMobileMenu()">
-            <span class="nav-icon">⚖️</span>
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+            </span>
             <span class="nav-text">{{ 'nav.weight' | translate }}</span>
           </a>
           <a routerLink="/trends" routerLinkActive="active" (click)="closeMobileMenu()">
-            <span class="nav-icon">📈</span>
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </span>
             <span class="nav-text">{{ 'nav.trends' | translate }}</span>
           </a>
           <a routerLink="/streaks" routerLinkActive="active" (click)="closeMobileMenu()">
-            <span class="nav-icon">🔥</span>
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </span>
             <span class="nav-text">{{ 'nav.streaks' | translate }}</span>
           </a>
           <a routerLink="/ai-insights" routerLinkActive="active" (click)="closeMobileMenu()">
-            <span class="nav-icon">🤖</span>
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"></path>
+                <circle cx="9" cy="14" r="1"></circle>
+                <circle cx="15" cy="14" r="1"></circle>
+              </svg>
+            </span>
             <span class="nav-text">AI Insights</span>
           </a>
           

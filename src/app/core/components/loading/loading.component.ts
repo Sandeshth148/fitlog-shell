@@ -25,7 +25,7 @@ import { LoadingService } from '../../services/loading.service';
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(255, 255, 255, 0.05);
+      background: #f0f0f0;
       z-index: 9999;
       display: flex;
       align-items: center;
