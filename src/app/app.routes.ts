@@ -33,7 +33,7 @@ export const routes: Routes = [
     path: 'ai-insights',
     loadComponent: () => loadRemoteModule({
       remoteName: 'fitlog-ai-insights',
-      exposedModule: './InsightsComponent'
-    }).then(m => m.InsightsComponent)
+      exposedModule: './Component'
+    }).then(m => m.StreaksComponent)
   }
 ];
