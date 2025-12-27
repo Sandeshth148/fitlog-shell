@@ -72,6 +72,15 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
             </span>
             <span class="nav-text">AI Insights</span>
           </a>
+          <a routerLink="/fasting" routerLinkActive="active" (click)="closeMobileMenu()">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </span>
+            <span class="nav-text">Fasting</span>
+          </a>
           
           <div class="nav-controls">
             <app-theme-selector></app-theme-selector>

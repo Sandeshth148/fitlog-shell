@@ -35,5 +35,10 @@ export const routes: Routes = [
       remoteName: 'fitlog-ai-insights',
       exposedModule: './Component'
     }).then(m => m.StreaksComponent)
+  },
+  {
+    path: 'fasting',
+    loadComponent: () => import('./features/fasting-wrapper/fasting-wrapper.component')
+      .then(m => m.FastingWrapperComponent)
   }
 ];
