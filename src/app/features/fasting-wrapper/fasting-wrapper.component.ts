@@ -95,22 +95,27 @@ export class FastingWrapperComponent implements OnInit {
   }
 
   private loadScript() {
-    if (document.getElementById('fasting-tracker-script')) {
-      this.loaded = true;
-      return;
+    // Remove existing CSS and script to force reload
+    const existingCss = document.getElementById('fasting-tracker-css');
+    const existingScript = document.getElementById('fasting-tracker-script');
+    
+    if (existingCss) {
+      existingCss.remove();
+    }
+    if (existingScript) {
+      existingScript.remove();
     }
 
-    // Load CSS first
+    // Load CSS first with cache busting
     const link = document.createElement('link');
     link.id = 'fasting-tracker-css';
     link.rel = 'stylesheet';
     link.href = `http://localhost:4206/fasting-tracker.css?t=${new Date().getTime()}`;
     document.head.appendChild(link);
 
-    // Then load JS
+    // Then load JS with cache busting
     const script = document.createElement('script');
     script.id = 'fasting-tracker-script';
-    // Add timestamp to prevent caching during dev
     script.src = `http://localhost:4206/fasting-tracker.js?t=${new Date().getTime()}`;
     script.type = 'module';
     script.crossOrigin = 'anonymous';
