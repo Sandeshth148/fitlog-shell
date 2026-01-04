@@ -100,6 +100,14 @@ export class FastingWrapperComponent implements OnInit {
       return;
     }
 
+    // Load CSS first
+    const link = document.createElement('link');
+    link.id = 'fasting-tracker-css';
+    link.rel = 'stylesheet';
+    link.href = `http://localhost:4206/fasting-tracker.css?t=${new Date().getTime()}`;
+    document.head.appendChild(link);
+
+    // Then load JS
     const script = document.createElement('script');
     script.id = 'fasting-tracker-script';
     // Add timestamp to prevent caching during dev
