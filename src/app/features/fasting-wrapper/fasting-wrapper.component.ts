@@ -95,33 +95,37 @@ export class FastingWrapperComponent implements OnInit {
   }
 
   private loadScript() {
-    // Remove existing CSS and script to force reload
-    const existingCss = document.getElementById('fasting-tracker-css');
-    const existingScript = document.getElementById('fasting-tracker-script');
-    
-    if (existingCss) {
-      existingCss.remove();
-    }
-    if (existingScript) {
-      existingScript.remove();
-    }
+    // Remove old script and CSS if they exist
+    const oldScript = document.getElementById('fasting-tracker-script');
+    const oldCss = document.getElementById('fasting-tracker-css');
+    if (oldScript) oldScript.remove();
+    if (oldCss) oldCss.remove();
 
-    // Load CSS first with cache busting
+    const timestamp = new Date().getTime();
+
+    // Load CSS first
     const link = document.createElement('link');
     link.id = 'fasting-tracker-css';
     link.rel = 'stylesheet';
-    link.href = `http://localhost:4206/fasting-tracker.css?t=${new Date().getTime()}`;
+    link.href = `http://localhost:4206/fasting-tracker.css?t=${timestamp}`;
+    link.onload = () => {
+      console.log('✅ CSS loaded successfully from:', link.href);
+    };
+    link.onerror = () => {
+      console.error('❌ Failed to load CSS from:', link.href);
+    };
+    console.log('📝 Loading CSS from:', link.href);
     document.head.appendChild(link);
 
-    // Then load JS with cache busting
+    // Then load JS
     const script = document.createElement('script');
     script.id = 'fasting-tracker-script';
-    script.src = `http://localhost:4206/fasting-tracker.js?t=${new Date().getTime()}`;
+    script.src = `http://localhost:4206/fasting-tracker.js?t=${timestamp}`;
     script.type = 'module';
     script.crossOrigin = 'anonymous';
 
     script.onload = () => {
-      console.log('✅ React Fasting Tracker loaded');
+      console.log('✅ React Fasting Tracker loaded at', new Date().toLocaleTimeString());
       this.loaded = true;
     };
 
