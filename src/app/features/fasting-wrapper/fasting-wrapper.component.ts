@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnInit, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StorageService } from '../../core/services/storage.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-fasting-wrapper',
@@ -102,12 +103,15 @@ export class FastingWrapperComponent implements OnInit {
     if (oldCss) oldCss.remove();
 
     const timestamp = new Date().getTime();
+    const baseUrl = environment.production 
+      ? environment.mfeUrls.fastingTracker 
+      : 'http://localhost:4206';
 
     // Load CSS first
     const link = document.createElement('link');
     link.id = 'fasting-tracker-css';
     link.rel = 'stylesheet';
-    link.href = `http://localhost:4206/fasting-tracker.css?t=${timestamp}`;
+    link.href = `${baseUrl}/fasting-tracker.css?t=${timestamp}`;
     link.onload = () => {
       console.log('✅ CSS loaded successfully from:', link.href);
     };
@@ -120,7 +124,7 @@ export class FastingWrapperComponent implements OnInit {
     // Then load JS
     const script = document.createElement('script');
     script.id = 'fasting-tracker-script';
-    script.src = `http://localhost:4206/fasting-tracker.js?t=${timestamp}`;
+    script.src = `${baseUrl}/fasting-tracker.js?t=${timestamp}`;
     script.type = 'module';
     script.crossOrigin = 'anonymous';
 
@@ -131,7 +135,7 @@ export class FastingWrapperComponent implements OnInit {
 
     script.onerror = () => {
       console.error('❌ Failed to load React Fasting Tracker');
-      this.error = 'Failed to load Fasting Tracker. Ensure server is running on port 4206.';
+      this.error = 'Failed to load Fasting Tracker. Ensure server is running.';
     };
 
     document.body.appendChild(script);
