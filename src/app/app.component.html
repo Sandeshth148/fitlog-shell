@@ -1,6 +1,7 @@
-<app-nav></app-nav>
+<app-topbar></app-topbar>
+<app-sidebar></app-sidebar>
 
-<main class="app-main">
+<main class="app-main" [class.sidebar-collapsed]="sidebarCollapsed">
   <router-outlet></router-outlet>
 </main>
 

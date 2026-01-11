@@ -1,47 +1,35 @@
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.app-nav {
-  background: var(--color-primary-dark);
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  h1 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-
-    a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background 0.2s;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      &.active {
-        background: rgba(255, 255, 255, 0.2);
-      }
-    }
-  }
-}
-
-main {
-  flex: 1;
+// Main app container with new layout
+.app-main {
+  margin-top: 60px; // Height of topbar
+  margin-left: 250px; // Width of sidebar
+  min-height: calc(100vh - 60px);
   background: var(--color-bg);
+  transition: margin-left 0.3s ease;
+  padding: 2rem;
+
+  // When sidebar is collapsed
+  &.sidebar-collapsed {
+    margin-left: 70px;
+  }
+}
+
+// Tablet & Mobile - No sidebar margin
+@media (max-width: 1024px) {
+  .app-main {
+    margin-left: 0;
+  }
+}
+
+// Mobile - Reduce padding
+@media (max-width: 768px) {
+  .app-main {
+    padding: 1.5rem;
+  }
+}
+
+// Small Mobile - Further reduce padding
+@media (max-width: 480px) {
+  .app-main {
+    padding: 1rem;
+  }
 }
