@@ -3,6 +3,7 @@ export const environment = {
   mfeUrls: {
     fastingTracker: 'http://localhost:4206',
     streaks: 'http://localhost:4204/remoteEntry.json',
-    aiInsights: 'http://localhost:4203/remoteEntry.json'
+    aiInsights: 'http://localhost:4203/remoteEntry.json',
+    taskTracker: 'http://localhost:4207/remoteEntry.json'
   }
 };
