@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.2] - 2026-01-11
+
+### Fixed
+- Service worker now enabled in development mode for PWA testing
+- PWA install prompt can now be tested on localhost
+
+### Technical
+- Added serviceWorker configuration to angular.json development build
+- Changed app.config.ts to enable service worker in dev mode
+
+---
+
 ## [1.1.1] - 2026-01-11
 
 ### Added
