@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.1] - 2026-01-11
+
+### Fixed
+- **CRITICAL:** Task Tracker Netlify deployment - Added netlify.toml configuration
+- Mobile topbar UX - Hidden language and theme selectors on mobile (< 768px)
+- Cleaner mobile interface with only essential controls
+
+### Changed
+- Mobile topbar now shows: Menu button, Logo, User profile only
+- Language and theme settings accessible via sidebar on mobile
+- Task Tracker deployment configuration matches Streaks setup
+
+### Technical
+- Added netlify.toml to Task Tracker with correct publish directory
+- CORS headers configured for Module Federation
+- SPA redirect rules added
+- Node version 20 specified
+
+---
+
 ## [1.2.0] - 2026-01-11
 
 ### Added
