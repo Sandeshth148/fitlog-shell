@@ -40,5 +40,10 @@ export const routes: Routes = [
     path: 'fasting',
     loadComponent: () => import('./features/fasting-wrapper/fasting-wrapper.component')
       .then(m => m.FastingWrapperComponent)
+  },
+  {
+    path: 'tasks',
+    loadComponent: () => import('./features/tasks-placeholder/tasks-placeholder.component')
+      .then(m => m.TasksPlaceholderComponent)
   }
 ];
