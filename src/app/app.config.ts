@@ -11,7 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
+      enabled: true, // Enable in dev mode for PWA testing
       registrationStrategy: 'registerWhenStable:30000'
     })
   ]

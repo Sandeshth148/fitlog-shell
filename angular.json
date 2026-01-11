@@ -109,7 +109,8 @@
 						"development": {
 							"optimization": false,
 							"extractLicenses": false,
-							"sourceMap": true
+							"sourceMap": true,
+							"serviceWorker": "src/ngsw-config.json"
 						}
 					},
 					"defaultConfiguration": "production"
