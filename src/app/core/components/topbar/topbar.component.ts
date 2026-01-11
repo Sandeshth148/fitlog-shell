@@ -30,15 +30,6 @@ import { SidebarService } from '../../services/sidebar.service';
 
         <!-- Right: Utilities -->
         <div class="topbar-right">
-          <!-- Notifications - Disabled for now -->
-          <!-- <button class="topbar-btn" (click)="onNotificationsClick()" aria-label="Notifications" title="Notifications">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-            </svg>
-            <span class="notification-badge" *ngIf="notificationCount > 0">{{ notificationCount }}</span>
-          </button> -->
-
           <!-- Language Switcher -->
           <app-language-switcher></app-language-switcher>
 
@@ -175,13 +166,8 @@ import { SidebarService } from '../../services/sidebar.service';
       }
     }
 
-    /* Mobile - Hide language and theme selectors */
+    /* Mobile - Keep all controls visible */
     @media (max-width: 768px) {
-      app-language-switcher,
-      app-theme-selector {
-        display: none;
-      }
-
       .topbar-right {
         gap: 0.5rem;
       }
@@ -213,16 +199,9 @@ import { SidebarService } from '../../services/sidebar.service';
   `]
 })
 export class TopbarComponent {
-  notificationCount = 0; // Will be updated when Task Tracker is added
-
   constructor(private sidebarService: SidebarService) {}
 
   onMenuToggle(): void {
     this.sidebarService.toggleMobile();
-  }
-
-  onNotificationsClick(): void {
-    // TODO: Open notifications panel when Task Tracker is implemented
-    console.log('Notifications clicked - Coming soon with Task Tracker!');
   }
 }
