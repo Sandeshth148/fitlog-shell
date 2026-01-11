@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.3] - 2026-01-11
+
+### Fixed
+- **CRITICAL:** Fasting Tracker not loading in production
+- Added fileReplacements configuration for production builds
+- Production now correctly uses environment.prod.ts with Netlify URLs
+- Fixed ERR_CONNECTION_REFUSED errors for Fasting Tracker MFE
+
+### Technical
+- Added fileReplacements to angular.json production configuration
+- Environment files now properly replaced during production builds
+
+---
+
 ## [1.1.2] - 2026-01-11
 
 ### Fixed
