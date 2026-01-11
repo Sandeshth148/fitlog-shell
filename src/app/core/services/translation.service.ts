@@ -186,7 +186,17 @@ export class TranslationService {
         },
         setup: { title: 'Welcome to FitLog', intro: 'Let\'s set up your profile to get started tracking your weight and health metrics.' },
         footer: { copyright: '© {{year}} FitLog. All rights reserved.', tagline: 'Track your fitness journey, one entry at a time.' },
-        pwa: { installTitle: 'Install FitLog', installSubtitle: 'Get the full app experience', installButton: 'Install App' },
+        pwa: { 
+          installTitle: 'Install FitLog', 
+          installSubtitle: 'Get the full app experience', 
+          installButton: 'Install App',
+          install: {
+            title: 'Install FitLog App',
+            description: 'Add FitLog to your home screen for quick access and offline use',
+            button: 'Install',
+            dismiss: 'Not now'
+          }
+        },
         profile: {
           title: 'User Profile',
           guest: 'Guest',
@@ -240,6 +250,18 @@ export class TranslationService {
           edit: 'संपादित करें',
           delete: 'हटाएं'
         },
+        footer: { copyright: '© {{year}} FitLog. सर्वाधिकार सुरक्षित।', tagline: 'अपनी फिटनेस यात्रा को ट्रैक करें, एक बार में एक एंट्री।' },
+        pwa: {
+          installTitle: 'FitLog इंस्टॉल करें',
+          installSubtitle: 'पूर्ण ऐप अनुभव प्राप्त करें',
+          installButton: 'ऐप इंस्टॉल करें',
+          install: {
+            title: 'FitLog ऐप इंस्टॉल करें',
+            description: 'त्वरित पहुंच और ऑफ़लाइन उपयोग के लिए FitLog को अपनी होम स्क्रीन पर जोड़ें',
+            button: 'इंस्टॉल करें',
+            dismiss: 'अभी नहीं'
+          }
+        },
         form: { 
           date: 'तारीख', 
           weight: 'वजन', 
@@ -278,9 +300,7 @@ export class TranslationService {
           weightRequired: 'एक मान्य, सकारात्मक वजन आवश्यक है।',
           saveEntry: 'एंट्री सेव करें'
         },
-        setup: { title: 'FitLog में आपका स्वागत है', intro: 'आइए अपना प्रोफ़ाइल सेट करें और अपने वजन और स्वास्थ्य मेट्रिक्स को ट्रैक करना शुरू करें।' },
-        footer: { copyright: '© {{year}} FitLog. सभी अधिकार सुरक्षित।', tagline: 'अपनी फिटनेस यात्रा को ट्रैक करें, एक बार में एक एंट्री।' },
-        pwa: { installTitle: 'FitLog इंस्टॉल करें', installSubtitle: 'पूरा ऐप अनुभव प्राप्त करें', installButton: 'ऐप इंस्टॉल करें' }
+        setup: { title: 'FitLog में आपका स्वागत है', intro: 'आइए अपना प्रोफ़ाइल सेट करें और अपने वजन और स्वास्थ्य मेट्रिक्स को ट्रैक करना शुरू करें।' }
       },
       kn: {
         nav: { home: 'ಮುಖ್ಯಪುಟ', trends: 'ಪ್ರವೃತ್ತಿಗಳು', streaks: 'ಸ್ಟ್ರೀಕ್ಸ್', weight: 'ತೂಕ' },

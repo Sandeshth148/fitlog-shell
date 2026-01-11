@@ -175,22 +175,39 @@ import { SidebarService } from '../../services/sidebar.service';
       }
     }
 
-    /* Small Mobile */
-    @media (max-width: 480px) {
-      .topbar-container {
-        padding: 0 1rem;
-      }
-
-      .topbar-logo {
-        font-size: 1.1rem;
-      }
-
-      .logo-icon {
-        font-size: 1.3rem;
+    /* Mobile - Hide language and theme selectors */
+    @media (max-width: 768px) {
+      app-language-switcher,
+      app-theme-selector {
+        display: none;
       }
 
       .topbar-right {
         gap: 0.5rem;
+      }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .topbar-container {
+        padding: 0 0.75rem;
+      }
+
+      .topbar-logo {
+        font-size: 1rem;
+      }
+
+      .logo-image {
+        width: 28px;
+        height: 28px;
+      }
+
+      .topbar-right {
+        gap: 0.25rem;
+      }
+
+      .topbar-btn {
+        padding: 0.4rem;
       }
     }
   `]

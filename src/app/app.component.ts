@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd, NavigationStart, NavigationCancel, NavigationError } from '@angular/router';
 import { TopbarComponent } from './core/components/topbar/topbar.component';
 import { SidebarComponent } from './core/components/sidebar/sidebar.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { ToastComponent } from './core/components/toast/toast.component';
 import { LoadingComponent } from './core/components/loading/loading.component';
+import { PwaInstallPromptComponent } from './core/components/pwa-install-prompt/pwa-install-prompt.component';
 import { LoadingService } from './core/services/loading.service';
 import { SidebarService } from './core/services/sidebar.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, TopbarComponent, SidebarComponent, FooterComponent, ToastComponent, LoadingComponent],
+  imports: [CommonModule, RouterOutlet, TopbarComponent, SidebarComponent, FooterComponent, ToastComponent, LoadingComponent, PwaInstallPromptComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

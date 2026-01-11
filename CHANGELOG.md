@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.1] - 2026-01-11
+
+### Added
+- PWA install prompt component with automatic detection
+- Install prompt appears 3 seconds after page load
+- Dismissal state management (7-day cooldown)
+- PWA translations in English and Hindi
+
+### Fixed
+- Mobile topbar overcrowding - hidden language/theme selectors on mobile
+- Improved mobile spacing and touch targets
+- Better responsive design for screens < 768px
+- Logo size optimization for mobile (28px)
+
+### Changed
+- Mobile topbar now shows only notifications and profile
+- Language/theme accessible via sidebar settings on mobile
+- Reduced button padding and gaps on small screens
+
+---
+
 ## [1.1.0] - 2026-01-11
 
 ### Added
