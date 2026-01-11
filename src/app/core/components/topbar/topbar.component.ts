@@ -175,8 +175,13 @@ import { SidebarService } from '../../services/sidebar.service';
       }
     }
 
-    /* Mobile - Keep all controls visible */
+    /* Mobile - Hide language and theme selectors for cleaner UI */
     @media (max-width: 768px) {
+      app-language-switcher,
+      app-theme-selector {
+        display: none;
+      }
+
       .topbar-right {
         gap: 0.5rem;
       }
