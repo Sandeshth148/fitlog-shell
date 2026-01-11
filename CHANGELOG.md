@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] - 2026-01-11
+
+### Added
+- **Task Tracker MFE Integration** - Full-featured task management system
+- Recurring tasks support (Hourly, Daily, Weekly, Monthly, Yearly)
+- Browser notifications for task creation and resets
+- Task archiving functionality
+- Pagination for large task lists (10 per page)
+- Advanced filtering by status, priority, and recurrence type
+- Real-time search functionality
+- Task completion tracking with counts
+- Web Workers for background task checking
+- Professional Inter font family
+- Mobile-responsive task management interface
+
+### Changed
+- Updated federation.manifest.json with Task Tracker production URL
+- Removed disabled notification bell icon from topbar (commented code cleanup)
+- Improved mobile UX - language and theme selectors now visible on all devices
+
+### Fixed
+- Mobile view now shows language switcher and theme selector
+- Removed confusing disabled notification features from Shell header
+- Cleaned up commented notification code
+
+### Technical
+- Deployed Task Tracker to: https://fitlog-task-tracker.netlify.app
+- Native Federation integration with Task Tracker MFE
+- localStorage persistence for tasks
+- Web Worker implementation for performance
+- Notification API integration (browser-native)
+
+---
+
 ## [1.1.3] - 2026-01-11
 
 ### Fixed
