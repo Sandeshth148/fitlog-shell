@@ -1,5 +1,5 @@
 {
     "fitlog-streaks": "https://fitlog-streaks.netlify.app/remoteEntry.json",
     "fitlog-ai-insights": "https://fitlog-ai-insights.netlify.app/remoteEntry.json",
-    "fitlog-tasks": "http://localhost:4207/remoteEntry.json"
+    "fitlog-tasks": "https://fitlog-task-tracker.netlify.app/remoteEntry.json"
 }
