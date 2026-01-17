@@ -44,8 +44,8 @@ export const routes: Routes = [
   {
     path: 'tasks',
     loadComponent: () => loadRemoteModule({
-      remoteName: 'fitlog-task-tracker',
+      remoteName: 'fitlog-tasks',
       exposedModule: './Component'
-    }).then(m => m.AppComponent)
+    }).then(m => m.TasksComponent)
   }
 ];

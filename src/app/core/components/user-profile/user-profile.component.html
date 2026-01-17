@@ -1,207 +1,155 @@
 <div class="user-profile">
   <!-- Profile Button -->
-  <button 
-    class="profile-button" 
-    (click)="openModal()" 
-    [attr.aria-label]="'Open user profile'">
-    
+  <button class="profile-button" (click)="openModal()" [attr.aria-label]="'Open user profile'">
+
     @if (userProfile() && userProfile()?.avatar) {
-      <div class="avatar-container">
-        <img [src]="userProfile()?.avatar" alt="User avatar" class="user-avatar" />
-      </div>
+    <div class="avatar-container">
+      <img [src]="userProfile()?.avatar" alt="User avatar" class="user-avatar" />
+    </div>
     } @else {
-      <div class="avatar-placeholder">
-        <span class="avatar-icon">👤</span>
-      </div>
+    <div class="avatar-placeholder">
+      <span class="avatar-icon">👤</span>
+    </div>
     }
-    
+
     @if (userProfile() && userProfile()?.name) {
-      <span class="user-name">{{ userProfile()?.name }}</span>
+    <span class="user-name">{{ userProfile()?.name }}</span>
     } @else {
-      <span class="user-name">{{ 'profile.guest' | translate }}</span>
+    <span class="user-name">{{ 'profile.guest' | translate }}</span>
     }
   </button>
-  
+
   <!-- Profile Modal -->
   @if (isModalOpen()) {
-    <div class="modal-overlay" (click)="closeModal()">
-      <div class="modal-container" (click)="$event.stopPropagation()">
-        <div class="modal-header">
-          <h2>{{ 'profile.title' | translate }}</h2>
-          <button class="close-button" (click)="closeModal()" aria-label="Close">×</button>
-        </div>
-        
-        <div class="modal-body">
-          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-            <!-- Avatar Upload -->
-            <div class="avatar-upload">
-              <div class="avatar-preview">
-                @if (avatarPreview()) {
-                  <img [src]="avatarPreview()" alt="Avatar preview" />
-                } @else {
-                  <div class="avatar-placeholder large">
-                    <span class="avatar-icon">👤</span>
-                  </div>
-                }
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>{{ 'profile.title' | translate }}</h2>
+        <button class="close-button" (click)="closeModal()" aria-label="Close">×</button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <!-- Avatar Upload -->
+          <div class="avatar-upload">
+            <div class="avatar-preview">
+              @if (avatarPreview()) {
+              <img [src]="avatarPreview()" alt="Avatar preview" />
+              } @else {
+              <div class="avatar-placeholder large">
+                <span class="avatar-icon">👤</span>
               </div>
-              
-              <div class="avatar-controls">
-                <label class="file-input-label">
-                  <span>{{ 'profile.chooseImage' | translate }}</span>
-                  <input 
-                    type="file" 
-                    accept="image/*" 
-                    (change)="onFileSelected($event)" 
-                    class="file-input" />
-                </label>
-                <p class="file-hint">{{ 'profile.imageHint' | translate }}</p>
-              </div>
-            </div>
-            
-            <!-- Name Input -->
-            <div class="form-group">
-              <label for="name">
-                {{ 'profile.name' | translate }} <span class="required">*</span>
-              </label>
-              <input 
-                type="text" 
-                id="name" 
-                formControlName="name" 
-                [placeholder]="'profile.namePlaceholder' | translate" 
-                class="form-input"
-                [class.error]="hasNameError" />
-              
-              @if (hasNameError) {
-                <div class="error-message">{{ nameErrorMessage | translate }}</div>
               }
             </div>
-            
-            <!-- Age Input (Optional) -->
-            <div class="form-group">
-              <label for="age">
-                {{ 'profile.age' | translate }}
-                <span class="optional">({{ 'profile.optional' | translate }})</span>
-              </label>
-              <input 
-                type="number" 
-                id="age" 
-                formControlName="age" 
-                [placeholder]="'profile.agePlaceholder' | translate" 
-                class="form-input"
-                min="1"
-                max="150" />
-            </div>
-            
-            <!-- Height Unit Selection -->
-            <div class="form-group">
-              <label class="form-label">
-                {{ 'form.height' | translate }} <span class="required">*</span>
-              </label>
-              <div class="unit-selector">
-                <button
-                  type="button"
-                  class="unit-btn"
-                  [class.active]="heightUnit() === 'cm'"
-                  (click)="profileForm.patchValue({ heightUnit: 'cm' })">
-                  {{ 'form.centimeters' | translate }}
-                </button>
-                <button
-                  type="button"
-                  class="unit-btn"
-                  [class.active]="heightUnit() === 'ft'"
-                  (click)="profileForm.patchValue({ heightUnit: 'ft' })">
-                  {{ 'form.feetInches' | translate }}
-                </button>
-              </div>
-            </div>
 
-            <!-- Height in Centimeters -->
-            @if (heightUnit() === 'cm') {
-              <div class="form-group">
-                <label for="heightCm" class="form-label">
-                  {{ 'form.heightCm' | translate }}
+            <div class="avatar-controls">
+              <label class="file-input-label">
+                <span>{{ 'profile.chooseImage' | translate }}</span>
+                <input type="file" accept="image/*" (change)="onFileSelected($event)" class="file-input" />
+              </label>
+              <p class="file-hint">{{ 'profile.imageHint' | translate }}</p>
+            </div>
+          </div>
+
+          <!-- Name Input -->
+          <div class="form-group">
+            <label for="name">
+              {{ 'profile.name' | translate }} <span class="required">*</span>
+            </label>
+            <input type="text" id="name" formControlName="name" [placeholder]="'profile.namePlaceholder' | translate"
+              class="form-input" [class.error]="hasNameError" />
+
+            @if (hasNameError) {
+            <div class="error-message">{{ nameErrorMessage | translate }}</div>
+            }
+          </div>
+
+          <!-- Age Input (Optional) -->
+          <div class="form-group">
+            <label for="age">
+              {{ 'profile.age' | translate }}
+              <span class="optional">({{ 'profile.optional' | translate }})</span>
+            </label>
+            <input type="number" id="age" formControlName="age" [placeholder]="'profile.agePlaceholder' | translate"
+              class="form-input" min="1" max="150" />
+          </div>
+
+          <!-- Height Unit Selection -->
+          <div class="form-group">
+            <label class="form-label">
+              {{ 'form.height' | translate }} <span class="required">*</span>
+            </label>
+            <div class="unit-selector">
+              <button type="button" class="unit-btn" [class.active]="heightUnit() === 'cm'"
+                (click)="profileForm.patchValue({ heightUnit: 'cm' })">
+                {{ 'form.centimeters' | translate }}
+              </button>
+              <button type="button" class="unit-btn" [class.active]="heightUnit() === 'ft'"
+                (click)="profileForm.patchValue({ heightUnit: 'ft' })">
+                {{ 'form.feetInches' | translate }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Height in Centimeters -->
+          @if (heightUnit() === 'cm') {
+          <div class="form-group">
+            <label for="heightCm" class="form-label">
+              {{ 'form.heightCm' | translate }}
+            </label>
+            <div class="input-with-unit">
+              <input type="number" id="heightCm" formControlName="heightCm" class="form-input" placeholder="170"
+                min="50" max="300" step="0.1" />
+              <span class="unit-label">cm</span>
+            </div>
+          </div>
+          }
+
+          <!-- Height in Feet and Inches -->
+          @if (heightUnit() === 'ft') {
+          <div class="form-group">
+            <div class="height-feet-inches">
+              <div class="height-input-group">
+                <label for="heightFeet" class="form-label">
+                  {{ 'form.feet' | translate }}
                 </label>
                 <div class="input-with-unit">
-                  <input
-                    type="number"
-                    id="heightCm"
-                    formControlName="heightCm"
-                    class="form-input"
-                    placeholder="170"
-                    min="50"
-                    max="300"
-                    step="0.1"
-                  />
-                  <span class="unit-label">cm</span>
+                  <input type="number" id="heightFeet" formControlName="heightFeet" class="form-input" placeholder="5"
+                    min="1" max="9" />
+                  <span class="unit-label">ft</span>
                 </div>
               </div>
-            }
 
-            <!-- Height in Feet and Inches -->
-            @if (heightUnit() === 'ft') {
-              <div class="form-group">
-                <div class="height-feet-inches">
-                  <div class="height-input-group">
-                    <label for="heightFeet" class="form-label">
-                      {{ 'form.feet' | translate }}
-                    </label>
-                    <div class="input-with-unit">
-                      <input
-                        type="number"
-                        id="heightFeet"
-                        formControlName="heightFeet"
-                        class="form-input"
-                        placeholder="5"
-                        min="1"
-                        max="9"
-                      />
-                      <span class="unit-label">ft</span>
-                    </div>
-                  </div>
-
-                  <div class="height-input-group">
-                    <label for="heightInches" class="form-label">
-                      {{ 'form.inches' | translate }}
-                    </label>
-                    <div class="input-with-unit">
-                      <input
-                        type="number"
-                        id="heightInches"
-                        formControlName="heightInches"
-                        class="form-input"
-                        placeholder="7"
-                        min="0"
-                        max="11"
-                      />
-                      <span class="unit-label">in</span>
-                    </div>
-                  </div>
+              <div class="height-input-group">
+                <label for="heightInches" class="form-label">
+                  {{ 'form.inches' | translate }}
+                </label>
+                <div class="input-with-unit">
+                  <input type="number" id="heightInches" formControlName="heightInches" class="form-input"
+                    placeholder="7" min="0" max="11" />
+                  <span class="unit-label">in</span>
                 </div>
               </div>
-            }
-            
-            <!-- Form Actions -->
-            <div class="form-actions">
-              <button 
-                type="button" 
-                class="btn btn-secondary" 
-                (click)="closeModal()">
-                {{ 'common.cancel' | translate }}
-              </button>
-              
-              <button 
-                type="submit" 
-                class="btn btn-primary" 
-                [disabled]="profileForm.invalid || isSubmitting()">
-                @if (isSubmitting()) {
-                  <span class="spinner"></span>
-                }
-                {{ 'common.save' | translate }}
-              </button>
             </div>
-          </form>
-        </div>
+          </div>
+          }
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" (click)="closeModal()">
+              {{ 'common.cancel' | translate }}
+            </button>
+
+            <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid || isSubmitting()">
+              @if (isSubmitting()) {
+              <span class="spinner"></span>
+              }
+              {{ 'common.save' | translate }}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
   }
 </div>
