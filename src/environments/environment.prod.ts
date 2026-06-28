@@ -1,9 +1,10 @@
 export const environment = {
   production: true,
   mfeUrls: {
-    fastingTracker: 'https://myfitlog-fasting.netlify.app',
-    streaks: 'https://myfitlog-streaks.netlify.app/remoteEntry.json',
-    aiInsights: 'https://myfitlog-insights.netlify.app/remoteEntry.json',
-    tasks: 'https://myfitlog-tasks.netlify.app/remoteEntry.json'
+    fastingTracker: 'https://fitlog-fasting-tracker.vercel.app',
+    streaks: 'https://fitlog-streaks.vercel.app/remoteEntry.json',
+    aiInsights: 'https://fitlog-ai-insights.vercel.app/remoteEntry.json',
+    tasks: 'https://fitlog-task-tracker.vercel.app/remoteEntry.json'
   }
 };
+
