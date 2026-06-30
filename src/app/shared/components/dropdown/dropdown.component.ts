@@ -76,21 +76,25 @@ export interface DropdownOption {
     
     .dropdown-trigger {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 0.5rem;
-      background: none;
-      border: none;
-      color: white;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: var(--color-text-primary);
       cursor: pointer;
-      padding: 0.5rem 0.75rem;
-      border-radius: 6px;
-      transition: background-color 0.2s;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      transition: all 0.25s ease;
       font-size: 0.875rem;
+      font-weight: 600;
       white-space: nowrap;
-    }
-    
-    .dropdown-trigger:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      
+      &:hover {
+        background: rgba(var(--color-primary-rgb), 0.1);
+        border-color: rgba(var(--color-primary-rgb), 0.25);
+      }
     }
     
     .dropdown-icon {
@@ -98,12 +102,12 @@ export interface DropdownOption {
     }
     
     .dropdown-label {
-      font-weight: 500;
+      font-weight: 600;
     }
     
     .dropdown-arrow {
-      font-size: 0.75rem;
-      transition: transform 0.2s;
+      font-size: 0.65rem;
+      transition: transform 0.25s ease;
       opacity: 0.7;
     }
     
@@ -115,37 +119,53 @@ export interface DropdownOption {
       position: absolute;
       top: 100%;
       right: 0;
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      min-width: 140px;
+      background: var(--color-surface);
+      backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      box-shadow: var(--glass-shadow);
+      min-width: 150px;
       z-index: 1000;
       overflow: hidden;
-      margin-top: 0.25rem;
+      margin-top: 0.5rem;
+      animation: dropdownFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes dropdownFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
     .dropdown-option {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 0.5rem;
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.75rem 1rem;
       background: none;
       border: none;
       color: var(--color-text);
       cursor: pointer;
-      transition: background-color 0.2s;
+      transition: all 0.2s ease;
       font-size: 0.875rem;
       text-align: left;
+      font-weight: 500;
     }
     
     .dropdown-option:hover {
-      background-color: var(--color-bg-offset);
+      background: rgba(var(--color-primary-rgb), 0.08);
+      color: var(--color-text-primary);
     }
     
     .dropdown-option.active {
-      background-color: var(--color-primary);
+      background: var(--gradient-primary);
       color: white;
     }
     
@@ -156,7 +176,7 @@ export interface DropdownOption {
     }
     
     .option-label {
-      font-weight: 500;
+      font-weight: 600;
     }
   `]
 })

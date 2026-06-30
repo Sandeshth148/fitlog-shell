@@ -1,19 +1,104 @@
 <div class="home-container">
-  <h1>🏋️ FitLog Shell</h1>
-  <p>Welcome to FitLog - Your Fitness Tracking App</p>
+  <div class="welcome-header">
+    <h1>🏆 {{ 'home.welcomeTitle' | translate }}</h1>
+    <p>{{ 'home.welcomeSubtitle' | translate }}</p>
+  </div>
 
   <div class="features">
-    <div class="feature-card" routerLink="/weight-tracker" style="cursor: pointer;">
-      <h3>📊 Weight Tracker</h3>
-      <p>Track your weight and BMI over time</p>
+    <!-- Weight Tracker (Double Width on Desktop) -->
+    <div class="feature-card span-2" routerLink="/weight-tracker" style="cursor: pointer;">
+      <div class="card-icon">📊</div>
+      <div class="card-info">
+        <h3>{{ 'home.weightTitle' | translate }}</h3>
+        <p>{{ 'home.weightDesc' | translate }}</p>
+        <div class="live-metric weight-metric">
+          @if (latestWeight() !== null) {
+            <div class="metric-group">
+              <span class="value">{{ latestWeight() }}</span>
+              <span class="unit">{{ weightUnit() }}</span>
+            </div>
+            @if (bmi() !== null) {
+              <div class="metric-badge">
+                <span class="badge-label">BMI</span>
+                <span class="badge-value">{{ bmi() }}</span>
+                <span class="badge-status">{{ bmiCategory() }}</span>
+              </div>
+            }
+          } @else {
+            <span class="placeholder-text">No weight logged yet. Tap to add your first entry!</span>
+          }
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <h3>🔥 Streaks</h3>
-      <p>Build healthy habits with daily streaks</p>
+
+    <!-- Habit Streaks -->
+    <div class="feature-card" routerLink="/streaks" style="cursor: pointer;">
+      <div class="card-icon">🔥</div>
+      <div class="card-info">
+        <h3>{{ 'home.streaksTitle' | translate }}</h3>
+        <p>{{ 'home.streaksDesc' | translate }}</p>
+        <div class="live-metric streaks-metric">
+          @if (currentStreak() > 0) {
+            <span class="streak-count">{{ currentStreak() }} Days Streak</span>
+            <span class="streak-subtitle">Keep it up! ⚡</span>
+          } @else {
+            <span class="placeholder-text">Start your daily weight log streak!</span>
+          }
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <h3>📈 Trends</h3>
-      <p>Visualize your progress with charts</p>
+
+    <!-- Fasting Timer -->
+    <div class="feature-card" routerLink="/fasting" style="cursor: pointer;">
+      <div class="card-icon">⏱️</div>
+      <div class="card-info">
+        <h3>{{ 'home.fastingTitle' | translate }}</h3>
+        <p>{{ 'home.fastingDesc' | translate }}</p>
+        <div class="live-metric fasting-metric">
+          @if (isFasting()) {
+            <span class="fasting-status active">Fasting Active ({{ fastingDuration() }}h)</span>
+            <span class="fasting-time">{{ fastingRemainingTime() }}</span>
+          } @else {
+            <span class="placeholder-text">Fasting Stopped. Tap to start timer.</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Manager -->
+    <div class="feature-card" routerLink="/tasks" style="cursor: pointer;">
+      <div class="card-icon">📋</div>
+      <div class="card-info">
+        <h3>{{ 'home.tasksTitle' | translate }}</h3>
+        <p>{{ 'home.tasksDesc' | translate }}</p>
+        <div class="live-metric tasks-metric">
+          @if (totalTasks() > 0) {
+            <span class="tasks-progress">{{ completedTasks() }} / {{ totalTasks() }} Completed</span>
+            <div class="progress-bar-container">
+              <div class="progress-bar" [style.width.%]="(completedTasks() / totalTasks()) * 100"></div>
+            </div>
+          } @else {
+            <span class="placeholder-text">No tasks created. Add workouts or preps!</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Insights -->
+    <div class="feature-card" routerLink="/ai-insights" style="cursor: pointer;">
+      <div class="card-icon">🤖</div>
+      <div class="card-info">
+        <h3>{{ 'home.aiTitle' | translate }}</h3>
+        <p>{{ 'home.aiDesc' | translate }}</p>
+        <div class="live-metric ai-metric">
+          @if (latestWeight() !== null) {
+            <span class="ai-status ready">✨ Insights Ready</span>
+            <span class="ai-hint">Tap to read report</span>
+          } @else {
+            <span class="placeholder-text">Log metrics to enable AI analysis.</span>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -64,36 +64,39 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: var(--color-bg);
+  background: var(--color-surface);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   padding: 1.25rem;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--glass-border);
   position: relative;
   overflow: hidden;
-  touch-action: pan-y; /* Allow vertical scrolling but handle horizontal swipes */
-  width: 100%; /* Ensure entry takes full width */
-  box-sizing: border-box; /* Include padding in width calculation */
-  
+  touch-action: pan-y;
+  width: 100%;
+  box-sizing: border-box;
+
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    border-color: rgba(var(--color-primary-rgb), 0.25);
   }
-  
+
   @media (max-width: 640px) {
     flex-direction: column;
     gap: 1rem;
     cursor: pointer;
     user-select: none;
-    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
   }
-  
+
   /* Swipe animations */
   &.swiping-left {
     animation: swipe-left 0.3s forwards;
   }
-  
+
   &.swiping-right {
     animation: swipe-right 0.3s forwards;
   }
@@ -196,10 +199,12 @@
 .entry-weight {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   display: flex;
   align-items: baseline;
-  
+
   &:after {
     content: attr(data-unit);
     font-size: 1rem;
@@ -248,18 +253,21 @@
 .no-entries-placeholder {
   text-align: center;
   padding: 3rem 2rem;
-  background-color: var(--color-bg);
-  border-radius: 12px;
+  background: var(--color-surface);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border-radius: 18px;
   color: var(--color-text-secondary);
-  border: 2px dashed var(--color-border);
+  border: 2px dashed rgba(var(--color-primary-rgb), 0.15);
   margin-top: 2rem;
-  
+  box-shadow: var(--glass-shadow);
+
   p {
     margin: 0.5rem 0;
-    
+
     &:first-child {
       font-size: 1.25rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--color-text);
     }
   }

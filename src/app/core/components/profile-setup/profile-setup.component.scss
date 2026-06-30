@@ -4,19 +4,32 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: linear-gradient(135deg, var(--color-primary-lighter) 0%, var(--color-bg) 100%);
+  background: transparent;
 }
 
 .profile-setup-card {
-  background-color: var(--color-bg);
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  background: var(--color-menu-bg);
+  border: 1px solid var(--color-menu-border);
+  border-radius: 20px;
+  box-shadow: var(--menu-shadow);
   max-width: 600px;
   width: 100%;
   padding: 3rem;
+  animation: setupCardFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   
   @media (max-width: 640px) {
     padding: 2rem 1.5rem;
+  }
+}
+
+@keyframes setupCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -25,13 +38,16 @@
   margin-bottom: 2.5rem;
   
   h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-text);
+    font-size: 2.25rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0 0 0.75rem 0;
+    font-family: 'Outfit', sans-serif;
     
     @media (max-width: 640px) {
-      font-size: 1.75rem;
+      font-size: 1.85rem;
     }
   }
   
@@ -39,7 +55,7 @@
     font-size: 1rem;
     color: var(--color-text-secondary);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 }
 
@@ -64,7 +80,7 @@
   gap: 0.25rem;
   
   .required {
-    color: var(--color-danger, #ef4444);
+    color: var(--color-danger);
     font-size: 1rem;
   }
   
@@ -79,23 +95,23 @@
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 2px solid var(--color-border);
-  border-radius: 8px;
-  background-color: var(--color-bg);
+  border: 1px solid var(--color-menu-border);
+  border-radius: 12px;
+  background: var(--color-bg-offset);
   color: var(--color-text);
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   
   &:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb, 59, 130, 246), 0.1);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.15);
   }
   
   &.error {
-    border-color: var(--color-danger, #ef4444);
+    border-color: var(--color-danger);
     
     &:focus {
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
     }
   }
   
@@ -138,24 +154,21 @@
 
 .error-message {
   font-size: 0.75rem;
-  color: var(--color-danger, #ef4444);
+  color: var(--color-danger);
   margin-top: 0.25rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  
-  &::before {
-    content: '⚠';
-    font-size: 0.875rem;
-  }
+  font-weight: 500;
 }
 
 .unit-selector {
   display: flex;
   gap: 0.5rem;
-  background-color: var(--color-bg-secondary, #f3f4f6);
+  background: rgba(var(--color-primary-rgb), 0.06);
   padding: 0.25rem;
-  border-radius: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
 }
 
 .unit-btn {
@@ -164,21 +177,21 @@
   font-size: 0.875rem;
   font-weight: 500;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   background-color: transparent;
   color: var(--color-text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   
   &:hover {
-    background-color: var(--color-bg);
+    background: rgba(var(--color-primary-rgb), 0.08);
     color: var(--color-text);
   }
   
   &.active {
-    background-color: var(--color-primary);
+    background: var(--gradient-primary);
     color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.3);
   }
 }
 
@@ -200,17 +213,16 @@
 
 .alert {
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 0.875rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  color: var(--color-danger);
   
   &.alert-error {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: var(--color-danger, #ef4444);
-    border: 1px solid rgba(239, 68, 68, 0.2);
-    
     &::before {
       content: '❌';
       font-size: 1rem;
@@ -240,18 +252,3 @@
   cursor: not-allowed;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.profile-setup-card {
-  animation: fadeIn 0.3s ease-out;
-}

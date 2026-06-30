@@ -58,6 +58,7 @@ export class TranslationService {
   }
 
   translate(key: string): string {
+    if (!key) return '';
     const currentLang = this.currentLanguage$.value;
     
     // Try to get translation in current language
@@ -74,6 +75,7 @@ export class TranslationService {
   }
 
   private getNestedTranslation(obj: Translation, key: string): string {
+    if (!key || !obj) return '';
     const keys = key.split('.');
     let result: any = obj;
     
@@ -142,7 +144,26 @@ export class TranslationService {
              earned: 'Earned!'
           }
         },
-        home: { title: 'Weight Tracker', subtitle: 'Your personal weight tracking assistant.', addEntry: 'Add Entry', noEntries: 'No weight entries yet', getStarted: 'Add your first weight entry to get started!', recentEntries: 'Recent Entries' },
+        home: {
+          title: 'Weight Tracker',
+          subtitle: 'Your personal weight tracking assistant.',
+          addEntry: 'Add Entry',
+          noEntries: 'No weight entries yet',
+          getStarted: 'Add your first weight entry to get started!',
+          recentEntries: 'Recent Entries',
+          welcomeTitle: 'FitLog Tracker',
+          welcomeSubtitle: 'Your premium all-in-one health, task, and habit companion',
+          weightTitle: 'Weight Tracker',
+          weightDesc: 'Monitor your weight log, BMI, and weight goal trends over time.',
+          streaksTitle: 'Habit Streaks',
+          streaksDesc: 'Stay motivated by tracking daily health streaks and achievements.',
+          fastingTitle: 'Fasting Timer',
+          fastingDesc: 'Configure intermittent fasting schedules and analyze stats.',
+          tasksTitle: 'Task Manager',
+          tasksDesc: 'Track your daily workouts, meal preps, and fitness activities.',
+          aiTitle: 'AI Insights',
+          aiDesc: 'Receive personalized health reports based on your fitness logs.'
+        },
         trends: { title: 'Health Trends', subtitle: 'Track your progress and visualize your fitness journey over time.', weightTrend: 'Weight Trend', bmiTrend: 'BMI Trend', noData: 'No data available for the selected time range.', addEntries: 'Add some weight entries to see your trend!' },
         stats: { average: 'Average', current: 'Current', gained: 'Gained', lost: 'Lost', increased: 'Increased', decreased: 'Decreased', idealRange: 'Ideal Range', status: 'Status', averageBmi: 'Average BMI', currentBmi: 'Current BMI' },
         bmi: { underweight: 'Underweight', normal: 'Normal', overweight: 'Overweight', obese: 'Obese' },
@@ -225,7 +246,26 @@ export class TranslationService {
       },
       hi: {
         nav: { home: 'होम', trends: 'रुझान', streaks: 'स्ट्रीक्स', weight: 'वजन', tasks: 'कार्य' },
-        home: { title: 'वजन ट्रैकर', subtitle: 'आपका व्यक्तिगत वजन ट्रैकिंग सहायक।', addEntry: 'एंट्री जोड़ें', noEntries: 'अभी तक कोई वजन एंट्री नहीं', getStarted: 'शुरू करने के लिए अपनी पहली वजन एंट्री जोड़ें!', recentEntries: 'हाल की एंट्रीज' },
+        home: {
+          title: 'वजन ट्रैकर',
+          subtitle: 'आपका व्यक्तिगत वजन ट्रैकिंग सहायक।',
+          addEntry: 'एंट्री जोड़ें',
+          noEntries: 'अभी तक कोई वजन एंट्री नहीं',
+          getStarted: 'शुरू करने के लिए अपनी पहली वजन एंट्री जोड़ें!',
+          recentEntries: 'हाल की एंट्रीज',
+          welcomeTitle: 'फिटलॉग ट्रैकर',
+          welcomeSubtitle: 'आपका प्रीमियम ऑल-इन-वन स्वास्थ्य, कार्य और आदत साथी',
+          weightTitle: 'वजन ट्रैकर',
+          weightDesc: 'समय के साथ अपने वजन लॉग, बीएमआई और वजन लक्ष्य के रुझानों की निगरानी करें।',
+          streaksTitle: 'आदत स्ट्रीक्स',
+          streaksDesc: 'दैनिक स्वास्थ्य स्ट्रीक्स और उपलब्धियों को ट्रैक करके प्रेरित रहें।',
+          fastingTitle: 'फास्टिंग टाइमर',
+          fastingDesc: 'रुक-रुक कर उपवास (फास्टिंग) शेड्यूल कॉन्फ़िगर करें और आँकड़ों का विश्लेषण करें।',
+          tasksTitle: 'कार्य प्रबंधक',
+          tasksDesc: 'अपने दैनिक वर्कआउट, भोजन की तैयारी और फिटनेस गतिविधियों को ट्रैक करें।',
+          aiTitle: 'एआई अंतर्दृष्टि',
+          aiDesc: 'अपने फिटनेस लॉग के आधार पर व्यक्तिगत स्वास्थ्य रिपोर्ट प्राप्त करें।'
+        },
         trends: { title: 'स्वास्थ्य रुझान', subtitle: 'अपनी प्रगति को ट्रैक करें और समय के साथ अपनी फिटनेस यात्रा को देखें।', weightTrend: 'वजन रुझान', bmiTrend: 'बीएमआई रुझान', noData: 'चयनित समय सीमा के लिए कोई डेटा उपलब्ध नहीं।', addEntries: 'अपना रुझान देखने के लिए कुछ वजन एंट्री जोड़ें!' },
         stats: { average: 'औसत', current: 'वर्तमान', gained: 'बढ़ा', lost: 'घटा', increased: 'बढ़ा', decreased: 'घटा', idealRange: 'आदर्श सीमा', status: 'स्थिति', averageBmi: 'औसत बीएमआई', currentBmi: 'वर्तमान बीएमआई' },
         bmi: { underweight: 'कम वजन', normal: 'सामान्य', overweight: 'अधिक वजन', obese: 'मोटापा' },
@@ -347,7 +387,26 @@ export class TranslationService {
              earned: 'ಗಳಿಸಲಾಗಿದೆ!'
           }
         },
-        home: { title: 'ತೂಕ ಟ್ರ್ಯಾಕರ್', subtitle: 'ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ತೂಕ ಟ್ರ್ಯಾಕಿಂಗ್ ಸಹಾಯಕ।', addEntry: 'ಎಂಟ್ರಿ ಸೇರಿಸಿ', noEntries: 'ಇನ್ನೂ ಯಾವುದೇ ತೂಕ ಎಂಟ್ರಿಗಳಿಲ್ಲ', getStarted: 'ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಮೊದಲ ತೂಕ ಎಂಟ್ರಿಯನ್ನು ಸೇರಿಸಿ!', recentEntries: 'ಇತ್ತೀಚಿನ ಎಂಟ್ರಿಗಳು' },
+        home: {
+          title: 'ತೂಕ ಟ್ರ್ಯಾಕರ್',
+          subtitle: 'ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ತೂಕ ಟ್ರ್ಯಾಕಿಂಗ್ ಸಹಾಯಕ।',
+          addEntry: 'ಎಂಟ್ರಿ ಸೇರಿಸಿ',
+          noEntries: 'ಇನ್ನೂ ಯಾವುದೇ ತೂಕ ಎಂಟ್ರಿಗಳಿಲ್ಲ',
+          getStarted: 'ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಮೊದಲ ತೂಕ ಎಂಟ್ರಿಯನ್ನು ಸೇರಿಸಿ!',
+          recentEntries: 'ಇತ್ತೀಚಿನ ಎಂಟ್ರಿಗಳು',
+          welcomeTitle: 'ಫಿಟ್‌ಲಾಗ್ ಟ್ರ್ಯಾಕರ್',
+          welcomeSubtitle: 'ನಿಮ್ಮ ಪ್ರೀಮಿಯಂ ಆಲ್-ಇನ್-ಒನ್ ಆರೋಗ್ಯ, ಕಾರ್ಯ ಮತ್ತು ಹವ್ಯಾಸದ ಒಡನಾಡಿ',
+          weightTitle: 'ತೂಕ ಟ್ರ್ಯಾಕರ್',
+          weightDesc: 'ಕಾಲಾನಂತರದಲ್ಲಿ ನಿಮ್ಮ ತೂಕದ ಲಾಗ್, ಬಿಎಂಐ ಮತ್ತು ತೂಕದ ಗುರಿಯ ಪ್ರವೃತ್ತಿಗಳನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಿ.',
+          streaksTitle: 'ಹವ್ಯಾಸದ ಸ್ಟ್ರೀಕ್ಸ್',
+          streaksDesc: 'ದೈನಂದಿನ ಆರೋಗ್ಯದ ಸ್ಟ್ರೀಕ್ಸ್ ಮತ್ತು ಸಾಧನೆಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುವ ಮೂಲಕ ಪ್ರೇರೇಪಿತರಾಗಿರಿ.',
+          fastingTitle: 'ಉಪವಾಸದ ಟೈಮರ್',
+          fastingDesc: 'ಮಧ್ಯಂತರ ಉಪವಾಸದ ವೇಳಾಪಟ್ಟಿಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ ಮತ್ತು ಅಂಕಿಅಂಶಗಳನ್ನು ವಿಲೇಷಿಸಿ.',
+          tasksTitle: 'ಕಾರ್ಯ ನಿರ್ವಾಹಕ',
+          tasksDesc: 'ನಿಮ್ಮ ದೈನಂದಿನ ಜೀವನಕ್ರಮಗಳು, ಊಟದ ಸಿದ್ಧತೆಗಳು ಮತ್ತು ಫಿಟ್ನೆಸ್ ಚಟುವటಿಕೆಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.',
+          aiTitle: 'AI ಒಳನೋಟಗಳು',
+          aiDesc: 'ನಿಮ್ಮ ಫಿಟ್‌ನೆస్ ಲಾಗ್‌ಗಳ ಆಧಾರದ ಮೇಲೆ ವೈಯಕ್ತಿಕಗೊಳಿಸಿದ ಆರೋಗ್ಯ ವರದಿಗಳನ್ನು ಸ್ವೀಕರಿಸಿ.'
+        },
         trends: { title: 'ಆರೋಗ್ಯ ಪ್ರವೃತ್ತಿಗಳು', subtitle: 'ನಿಮ್ಮ ಪ್ರಗತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಮತ್ತು ಕಾಲಾನಂತರದಲ್ಲಿ ನಿಮ್ಮ ಫಿಟ್ನೆಸ್ ಪ್ರಯಾಣವನ್ನು ದೃಶ್ಯೀಕರಿಸಿ।', weightTrend: 'ತೂಕ ಪ್ರವೃತ್ತಿ', bmiTrend: 'BMI ಪ್ರವೃತ್ತಿ', noData: 'ಆಯ್ಕೆಮಾಡಿದ ಸಮಯ ವ್ಯಾಪ್ತಿಗೆ ಯಾವುದೇ ಡೇಟಾ ಲಭ್ಯವಿಲ್ಲ।', addEntries: 'ನಿಮ್ಮ ಪ್ರವೃತ್ತಿಯನ್ನು ನೋಡಲು ಕೆಲವು ತೂಕ ಎಂಟ್ರಿಗಳನ್ನು ಸೇರಿಸಿ!' },
         stats: { average: 'ಸರಾಸರಿ', current: 'ಪ್ರಸ್ತುತ', gained: 'ಹೆಚ್ಚಾಗಿದೆ', lost: 'ಕಳೆದುಕೊಂಡಿದೆ', increased: 'ಹೆಚ್ಚಾಗಿದೆ', decreased: 'ಕಡಿಮೆಯಾಗಿದೆ', idealRange: 'ಆದರ್ಶ ವ್ಯಾಪ್ತಿ', status: 'ಸ್ಥಿತಿ', averageBmi: 'ಸರಾಸರಿ BMI', currentBmi: 'ಪ್ರಸ್ತುತ BMI' },
         bmi: { underweight: 'ಕಡಿಮೆ ತೂಕ', normal: 'ಸಾಮಾನ್ಯ', overweight: 'ಅಧಿಕ ತೂಕ', obese: 'ಸ್ಥೂಲಕಾಯತೆ' },
@@ -415,7 +474,25 @@ export class TranslationService {
       },
       ta: {
         nav: { home: 'முகப்பு', trends: 'போக்குகள்', streaks: 'ஸ்ட்ரீக்ஸ்', weight: 'எடை', tasks: 'பணிகள்' },
-        home: { title: 'எடை கண்காணிப்பு', addEntry: 'பதிவு சேர்க்கவும்', noEntries: 'இன்னும் எடை பதிவுகள் இல்லை', getStarted: 'தொடங்க உங்கள் முதல் எடை பதிவைச் சேர்க்கவும்!', recentEntries: 'சமீபத்திய பதிவுகள்' },
+        home: {
+          title: 'எடை கண்காணிப்பு',
+          addEntry: 'பதிவு சேர்க்கவும்',
+          noEntries: 'இன்னும் எடை பதிவுகள் இல்லை',
+          getStarted: 'தொடங்க உங்கள் முதல் எடை பதிவைச் சேர்க்கவும்!',
+          recentEntries: 'சமீபத்திய பதிவுகள்',
+          welcomeTitle: 'பிட்லாக் டிராக்கர்',
+          welcomeSubtitle: 'உங்கள் பிரீமியம் ஆல்-இன்-ஒன் ஆரோக்கியம், பணி மற்றும் பழக்கவழக்க துணை',
+          weightTitle: 'எடை டிராக்கர்',
+          weightDesc: 'காலப்போக்கில் உங்கள் எடை பதிவு, பிஎம்ஐ மற்றும் எடை இலக்கு போக்குகளைக் கண்காணிக்கவும்.',
+          streaksTitle: 'பழக்கவழக்க தொடர்கள்',
+          streaksDesc: 'தினசரி ஆரோக்கிய தொடர்கள் மற்றும் சாதனைகளைக் கண்காணிப்பதன் மூலம் உந்துதலாக இருங்கள்.',
+          fastingTitle: 'நோன்பு டைமர்',
+          fastingDesc: 'இடைப்பட்ட நோன்பு அட்டவணைகளை உள்ளமைத்து புள்ளிவிவரங்களை பகுப்பாய்வு செய்யுங்கள்.',
+          tasksTitle: 'பணி மேలాளர்',
+          tasksDesc: 'உங்கள் தினசரி உடற்பயிற்சிகள், உணவு தயாரிப்புகள் மற்றும் உடற்பயிற்சி செயல்பாடுகளைக் கண்காணிக்கவும்.',
+          aiTitle: 'AI நுண்ணறிவு',
+          aiDesc: 'உங்கள் உடற்பயிற்சி பதிவுகளின் அடிப்படையில் தனிப்பயனாக்கப்பட்ட சுகாதார அறிக்கைகளைப் பெறுங்கள்.'
+        },
         trends: { title: 'உடல்நலப் போக்குகள்', subtitle: 'உங்கள் முன்னேற்றத்தைக் கண்காணித்து, காலப்போக்கில் உங்கள் உடற்பயிற்சி பயணத்தைக் காட்சிப்படுத்துங்கள்।', weightTrend: 'எடை போக்கு', bmiTrend: 'BMI போக்கு', noData: 'தேர்ந்தெடுக்கப்பட்ட நேர வரம்பிற்கு தரவு இல்லை।', addEntries: 'உங்கள் போக்கைப் பார்க்க சில எடை பதிவுகளைச் சேர்க்கவும்!' },
         stats: { average: 'சராசரி', current: 'தற்போதைய', gained: 'அதிகரித்தது', lost: 'இழந்தது', increased: 'அதிகரித்தது', decreased: 'குறைந்தது', idealRange: 'சிறந்த வரம்பு', status: 'நிலை', averageBmi: 'சராசரி BMI', currentBmi: 'தற்போதைய BMI' },
         bmi: { underweight: 'குறைந்த எடை', normal: 'சாதாரண', overweight: 'அதிக எடை', obese: 'உடல்பருமன்' },
@@ -526,7 +603,26 @@ export class TranslationService {
              earned: 'సంపాదించారు!'
           }
         },
-        home: { title: 'బరువు ట్రాకర్', subtitle: 'మీ వ్యక్తిగత బరువు ట్రాకింగ్ సహాయకుడు.', addEntry: 'ఎంట్రీ జోడించండి', noEntries: 'ఇంకా బరువు ఎంట్రీలు లేవు', getStarted: 'ప్రారంభించడానికి మీ మొదటి బరువు ఎంట్రీని జోడించండి!' },
+        home: {
+          title: 'బరువు ట్రాకర్',
+          subtitle: 'మీ వ్యక్తిగత బరువు ట్రాకింగ్ సహాయకుడు.',
+          addEntry: 'ఎంట్రీ జోడించండి',
+          noEntries: 'ఇంకా బరువు ఎంట్రీలు లేవు',
+          getStarted: 'ప్రారంభించడానికి మీ మొదటి బరువు ఎంట్రీని జోడించండి!',
+          recentEntries: 'ఇటీవలి ఎంట్రీలు',
+          welcomeTitle: 'ఫిట్‌లాగ్ ట్రాకర్',
+          welcomeSubtitle: 'ఆరోగ్యం, పనులు మరియు అలవాట్ల కోసం ఆల్-ఇన్-వన్ సహచరుడు',
+          weightTitle: 'బరువు ట్రాకర్',
+          weightDesc: 'సమయంతో పాటు మీ బరువు లాగ్, BMI మరియు బరువు లక్ష్యాలను పర్యవేక్షించండి.',
+          streaksTitle: 'అలవాటు స్ట్రీక్స్',
+          streaksDesc: 'రోజువారీ ఆరోగ్య స్ట్రీక్స్ మరియు విజయాలను ట్రాక్ చేయడం ద్వారా ప్రేరణ పొందండి.',
+          fastingTitle: 'ఉపవాస టైమర్',
+          fastingDesc: 'మధ్యంతర ఉపవాస షెడ్యూల్‌లను కాన్ఫిగర్ చేయండి మరియు గణాంకాలను విశ్లేషించండి.',
+          tasksTitle: 'టాస్క్ మేనేజర్',
+          tasksDesc: 'మీ రోజువారీ వ్యాయామాలు, భోజన సన్నాహాలు మరియు ఫిట్‌నెస్ కార్యకలాపాలను ట్రాక్ చేయండి.',
+          aiTitle: 'AI అంతర్దృష్టులు',
+          aiDesc: 'మీ ఫిట్‌నెస్ లాగ్‌ల ఆధారంగా వ్యక్తిగతీకరించిన ఆరోగ్య నివేదికలను స్వీకరించండి.'
+        },
         trends: { title: 'ఆరోగ్య ట్రెండ్స్', subtitle: 'మీ పురోగతిని ట్రాక్ చేయండి మరియు కాలక్రమేణా మీ ఫిట్నెస్ ప్రయాణాన్ని దృశ్యమానం చేయండి।', weightTrend: 'బరువు ట్రెండ్', bmiTrend: 'BMI ట్రెండ్', noData: 'ఎంచుకున్న సమయ పరిధికి డేటా అందుబాటులో లేదు।', addEntries: 'మీ ట్రెండ్ను చూడటానికి కొన్ని బరువు ఎంట్రీలను జోడించండి!' },
         stats: { average: 'సగటు', current: 'ప్రస్తుత', gained: 'పెరిగింది', lost: 'కోల్పోయింది', increased: 'పెరిగింది', decreased: 'తగ్గింది', idealRange: 'ఆదర్శ పరిధి', status: 'స్థితి', averageBmi: 'సగటు BMI', currentBmi: 'ప్రస్తుత BMI' },
         bmi: { underweight: 'తక్కువ బరువు', normal: 'సాధారణ', overweight: 'అధిక బరువు', obese: 'స్థూలకాయం' },
@@ -594,7 +690,24 @@ export class TranslationService {
       },
       fr: {
         nav: { home: 'Accueil', trends: 'Tendances', streaks: 'Séries', weight: 'Poids', tasks: 'Tâches' },
-        home: { title: 'Suivi du Poids', addEntry: 'Ajouter une Entrée', noEntries: 'Aucune entrée de poids pour le moment', getStarted: 'Ajoutez votre première entrée de poids pour commencer!' },
+        home: {
+          title: 'Suivi du Poids',
+          addEntry: 'Ajouter une Entrée',
+          noEntries: 'Aucune entrée de poids pour le moment',
+          getStarted: 'Ajoutez votre première entrée de poids pour commencer!',
+          welcomeTitle: 'FitLog Tracker',
+          welcomeSubtitle: 'Votre compagnon premium tout-en-un pour la santé, les tâches et les habitudes',
+          weightTitle: 'Suivi du Poids',
+          weightDesc: 'Surveillez votre journal de poids, votre IMC et vos tendances d\'objectifs de poids au fil du temps.',
+          streaksTitle: 'Séries d\'Habitudes',
+          streaksDesc: 'Restez motivé en suivant quotidiennement vos séries de santé et vos réalisations.',
+          fastingTitle: 'Minuteur de Jeûne',
+          fastingDesc: 'Configurez des programmes de jeûne intermittent et analysez les statistiques.',
+          tasksTitle: 'Gestionnaire de Tâches',
+          tasksDesc: 'Suivez vos entraînements quotidiens, préparations de repas et activités physiques.',
+          aiTitle: 'Analyses IA',
+          aiDesc: 'Recevez des rapports de santé personnalisés basés sur vos journaux de fitness.'
+        },
         trends: { title: 'Tendances Santé', subtitle: 'Suivez vos progrès et visualisez votre parcours fitness au fil du temps.', weightTrend: 'Tendance du Poids', bmiTrend: 'Tendance IMC', noData: 'Aucune donnée disponible pour la plage de temps sélectionnée.', addEntries: 'Ajoutez quelques entrées de poids pour voir votre tendance!' },
         stats: { average: 'Moyenne', current: 'Actuel', gained: 'Gagné', lost: 'Perdu', increased: 'Augmenté', decreased: 'Diminué', idealRange: 'Plage Idéale', status: 'Statut', averageBmi: 'IMC Moyen', currentBmi: 'IMC Actuel' },
         bmi: { underweight: 'Insuffisance pondérale', normal: 'Normal', overweight: 'Surpoids', obese: 'Obèse' },
@@ -662,7 +775,24 @@ export class TranslationService {
       },
       de: {
         nav: { home: 'Startseite', trends: 'Trends', streaks: 'Serien', weight: 'Gewicht', tasks: 'Aufgaben' },
-        home: { title: 'Gewichts-Tracker', addEntry: 'Eintrag hinzufügen', noEntries: 'Noch keine Gewichtseinträge', getStarted: 'Fügen Sie Ihren ersten Gewichtseintrag hinzu, um zu beginnen!' },
+        home: {
+          title: 'Gewichts-Tracker',
+          addEntry: 'Eintrag hinzufügen',
+          noEntries: 'Noch keine Gewichtseinträge',
+          getStarted: 'Fügen Sie Ihren ersten Gewichtseintrag hinzu, um zu beginnen!',
+          welcomeTitle: 'FitLog Tracker',
+          welcomeSubtitle: 'Ihr erstklassiger All-in-One-Begleiter für Gesundheit, Aufgaben und Gewohnheiten',
+          weightTitle: 'Gewichts-Tracker',
+          weightDesc: 'Überwachen Sie Ihr Gewichtsprotokoll, Ihren BMI und Ihre Gewichtszeiltrends im Laufe der Zeit.',
+          streaksTitle: 'Gewohnheitsserien',
+          streaksDesc: 'Bleiben Sie motiviert, indem Sie tägliche Gesundheitsserien und Erfolge verfolgen.',
+          fastingTitle: 'Fasten-Timer',
+          fastingDesc: 'Konfigurieren Sie intermittierende Fastenpläne und analysieren Sie Statistiken.',
+          tasksTitle: 'Aufgaben-Manager',
+          tasksDesc: 'Verfolgen Sie Ihre täglichen Workouts, Essenszubereitungen und Fitnessaktivitäten.',
+          aiTitle: 'KI-Erkenntnisse',
+          aiDesc: 'Erhalten Sie personalisierte Gesundheitsberichte basierend auf Ihren Fitnessprotokollen.'
+        },
         trends: { title: 'Gesundheitstrends', subtitle: 'Verfolgen Sie Ihren Fortschritt und visualisieren Sie Ihre Fitness-Reise über die Zeit.', weightTrend: 'Gewichtstrend', bmiTrend: 'BMI-Trend', noData: 'Keine Daten für den ausgewählten Zeitraum verfügbar.', addEntries: 'Fügen Sie einige Gewichtseinträge hinzu, um Ihren Trend zu sehen!' },
         stats: { average: 'Durchschnitt', current: 'Aktuell', gained: 'Zugenommen', lost: 'Verloren', increased: 'Gestiegen', decreased: 'Gesunken', idealRange: 'Idealbereich', status: 'Status', averageBmi: 'Durchschnittlicher BMI', currentBmi: 'Aktueller BMI' },
         bmi: { underweight: 'Untergewicht', normal: 'Normal', overweight: 'Übergewicht', obese: 'Adipös' },

@@ -24,9 +24,9 @@ import { APP_VERSION } from '../../constants/version';
   `,
   styles: [`
     .app-footer {
-      background-color: var(--color-bg-offset);
-      border-top: 1px solid var(--color-border);
-      padding: 2rem 1rem;
+      background: transparent;
+      border-top: 1px solid var(--glass-border);
+      padding: 2.5rem 1rem;
       margin-top: auto;
     }
     
@@ -40,7 +40,7 @@ import { APP_VERSION } from '../../constants/version';
       margin: 0 0 0.5rem 0;
       color: var(--color-text);
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: 600;
     }
     
     .tagline {
@@ -48,6 +48,7 @@ import { APP_VERSION } from '../../constants/version';
       color: var(--color-text-secondary);
       font-size: 0.75rem;
       font-style: italic;
+      opacity: 0.8;
     }
     
     .version {
@@ -55,11 +56,12 @@ import { APP_VERSION } from '../../constants/version';
       color: var(--color-text-muted);
       font-size: 0.7rem;
       font-weight: 500;
+      letter-spacing: 0.05em;
     }
     
     @media (max-width: 640px) {
       .app-footer {
-        padding: 1.5rem 1rem;
+        padding: 2rem 1rem;
       }
     }
   `]

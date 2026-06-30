@@ -1,5 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
 @use './styles/themes';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -7,117 +7,157 @@
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  // Glassmorphic glowing circles
+  &::before, &::after {
+    content: '';
+    position: fixed;
+    width: 45vw;
+    height: 45vw;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(100px);
+    opacity: var(--glow-opacity, 0.38);
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  &::before {
+    top: -10vw;
+    left: -10vw;
+    background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+  }
+
+  &::after {
+    bottom: -10vw;
+    right: -10vw;
+    background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+  }
 }
 
-/* Container for page content */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* Glassmorphic Global Card Layout */
+.card, .glass-card, .dashboard-card, .chart-container, .weight-card, .streak-card, .stat-card, .feature-card {
+  background: var(--color-surface) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--glass-shadow) !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+
+  &:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12) !important;
+    border-color: rgba(var(--color-primary-rgb), 0.3) !important;
+  }
 }
 
-/* Responsive typography */
+/* Typography headers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
 h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2 {
-  font-size: 1.75rem;
-  margin-bottom: 0.875rem;
+  font-size: 1.85rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   margin-bottom: 0.75rem;
 }
 
 p {
   margin-bottom: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
 }
 
-/* Responsive form elements */
-input, select, textarea, button {
+/* Form Styling - Glass inputs */
+input, select, textarea {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+  border-radius: 10px !important;
+  padding: 0.75rem 1rem !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
   font-family: inherit;
-  font-size: 1rem;
-}
 
-/* Responsive images */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Responsive grid system */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -0.5rem;
-}
-
-.col {
-  flex: 1;
-  padding: 0 0.5rem;
-}
-
-/* Responsive breakpoints */
-@media (max-width: 768px) {
-  html {
-    font-size: 15px;
-  }
-  
-  h1 {
-    font-size: 1.75rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-  }
-  
-  .row {
-    flex-direction: column;
-  }
-  
-  .col {
-    width: 100%;
-    margin-bottom: 1rem;
+  &:focus {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.15) !important;
   }
 }
 
-@media (max-width: 480px) {
-  html {
-    font-size: 14px;
+/* Glass Buttons */
+button, .btn {
+  font-family: inherit;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-primary, button[type="submit"] {
+  background: var(--gradient-primary) !important;
+  border: none !important;
+  color: white !important;
+  border-radius: 10px !important;
+  padding: 0.75rem 1.5rem !important;
+  box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), 0.3) !important;
+
+  &:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.4) !important;
   }
-  
-  .container {
-    padding: 0 0.75rem;
-  }
-  
-  h1 {
-    font-size: 1.5rem;
-  }
-  
-  h2 {
-    font-size: 1.25rem;
-  }
-  
-  h3 {
-    font-size: 1.125rem;
+
+  &:active {
+    transform: translateY(0) !important;
   }
 }
+
+/* Thin Glass Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--color-primary-rgb), 0.15);
+  border-radius: 99px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+
+  &:hover {
+    background: rgba(var(--color-primary-rgb), 0.35);
+  }
+}
+

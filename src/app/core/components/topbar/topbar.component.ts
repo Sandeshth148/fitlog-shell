@@ -54,14 +54,20 @@ import { SidebarService } from '../../services/sidebar.service';
   styles: [`
     .topbar {
       position: fixed;
-      top: 0;
+      top: 1rem;
       left: 0;
       right: 0;
-      height: 60px;
-      background: var(--color-primary);
-      color: white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      z-index: 100;
+      margin: 0 auto;
+      width: calc(100% - 2rem);
+      max-width: 1200px;
+      height: 68px;
+      background: var(--color-menu-bg);
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-menu-border);
+      border-radius: 20px;
+      z-index: 2000;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--menu-shadow);
     }
 
     .topbar-container {
@@ -84,15 +90,15 @@ import { SidebarService } from '../../services/sidebar.service';
       display: none; /* Hidden on desktop */
       background: none;
       border: none;
-      color: white;
+      color: var(--color-text-primary);
       cursor: pointer;
       padding: 0.5rem;
-      border-radius: 6px;
+      border-radius: 10px;
       transition: background 0.2s ease;
     }
 
     .menu-toggle:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(var(--color-primary-rgb), 0.1);
     }
 
     .topbar-logo {
@@ -100,8 +106,8 @@ import { SidebarService } from '../../services/sidebar.service';
       align-items: center;
       gap: 0.5rem;
       font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
+      font-weight: 800;
+      color: var(--color-text-primary);
       text-decoration: none;
       transition: opacity 0.2s ease;
     }
@@ -119,6 +125,11 @@ import { SidebarService } from '../../services/sidebar.service';
 
     .logo-text {
       display: none; /* Hidden on mobile, shown on desktop */
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
     }
 
     /* Right Section */
@@ -132,10 +143,10 @@ import { SidebarService } from '../../services/sidebar.service';
       position: relative;
       background: none;
       border: none;
-      color: white;
+      color: var(--color-text-primary);
       cursor: pointer;
       padding: 0.5rem;
-      border-radius: 6px;
+      border-radius: 10px;
       transition: background 0.2s ease;
       display: flex;
       align-items: center;
@@ -143,7 +154,7 @@ import { SidebarService } from '../../services/sidebar.service';
     }
 
     .topbar-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(var(--color-primary-rgb), 0.1);
     }
 
     .notification-badge {
@@ -164,33 +175,47 @@ import { SidebarService } from '../../services/sidebar.service';
     /* Tablet & Mobile */
     @media (max-width: 1024px) {
       .menu-toggle {
-        display: flex; /* Show on tablet/mobile */
+        display: flex; /* Show on tablet/mobile if needed */
       }
     }
 
-    /* Desktop */
-    @media (min-width: 768px) {
+    /* Hide menu-toggle since we are using a bottom dock layout */
+    .menu-toggle {
+      display: none !important;
+    }
+
+    /* Desktop & Mobile */
+    .logo-text {
+      display: none;
+    }
+
+    @media (min-width: 640px) {
       .logo-text {
-        display: inline; /* Show logo text on desktop */
+        display: inline;
       }
     }
 
-    /* Mobile - Hide language and theme selectors for cleaner UI */
-    @media (max-width: 768px) {
-      app-language-switcher,
-      app-theme-selector {
-        display: none;
-      }
+    .topbar-right {
+      gap: 0.5rem;
+    }
 
+    @media (min-width: 768px) {
       .topbar-right {
-        gap: 0.5rem;
+        gap: 0.75rem;
       }
     }
 
     /* Small Mobile */
     @media (max-width: 480px) {
+      .topbar {
+        top: 0.5rem;
+        width: calc(100% - 1rem);
+        height: 60px;
+        border-radius: 14px;
+      }
+
       .topbar-container {
-        padding: 0 0.75rem;
+        padding: 0 0.5rem;
       }
 
       .topbar-logo {
@@ -204,10 +229,6 @@ import { SidebarService } from '../../services/sidebar.service';
 
       .topbar-right {
         gap: 0.25rem;
-      }
-
-      .topbar-btn {
-        padding: 0.4rem;
       }
     }
   `]

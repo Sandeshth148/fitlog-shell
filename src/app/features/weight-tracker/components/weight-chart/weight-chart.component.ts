@@ -67,110 +67,158 @@ Chart.register(TimeScale, LinearScale, PointElement, LineElement, LineController
   `,
   styles: [`
     .chart-container {
-      background-color: var(--color-bg);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      box-shadow: var(--glass-shadow);
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      }
     }
     
     h3 {
       margin-top: 0;
-      margin-bottom: 1rem;
-      color: var(--color-text);
-      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
     }
     
     .chart-controls {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       
       button {
-        padding: 0.5rem 0.75rem;
-        border-radius: 4px;
-        border: 1px solid var(--color-border);
-        background-color: var(--color-bg);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--glass-border);
+        background: rgba(var(--color-primary-rgb), 0.05);
         color: var(--color-text);
         font-size: 0.875rem;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.25s ease;
         
         &:hover {
-          background-color: var(--color-bg-offset);
+          background: rgba(var(--color-primary-rgb), 0.1);
+          border-color: rgba(var(--color-primary-rgb), 0.25);
         }
         
         &.active {
-          background-color: var(--color-primary);
-          border-color: var(--color-primary);
+          background: var(--gradient-primary);
+          border-color: transparent;
           color: white;
+          box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), 0.25);
         }
       }
     }
     
     .chart-wrapper {
-      height: 300px;
+      height: 320px;
       position: relative;
+      background: rgba(255, 255, 255, 0.01);
+      border-radius: 12px;
+      padding: 0.5rem;
     }
     
     .chart-empty {
       text-align: center;
-      padding: 2rem 0;
+      padding: 3rem 0;
       color: var(--color-text-secondary);
+      border: 1px dashed var(--glass-border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
       
       p {
         margin: 0.5rem 0;
+        
+        &:first-child {
+          font-weight: 600;
+          color: var(--color-text);
+        }
       }
     }
     
     .stats-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
     }
     
     .stat-card {
-      background-color: var(--color-bg-offset);
-      padding: 1rem;
-      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.25rem 1rem;
+      border-radius: 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 2px solid var(--color-border);
+      border: 1px solid var(--glass-border);
+      transition: all 0.25s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(var(--color-primary-rgb), 0.2);
+      }
       
       .stat-label {
-        font-size: 0.75rem;
+        font-size: 0.725rem;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
         color: var(--color-text-secondary);
         margin-bottom: 0.5rem;
       }
       
       .stat-value {
-        font-size: 1.25rem;
-        font-weight: 700;
+        font-size: 1.35rem;
+        font-weight: 800;
+        font-family: 'Outfit', sans-serif;
         color: var(--color-primary);
       }
     }
     
     .stat-gained {
-      border-color: var(--color-danger, #ef4444);
+      background: rgba(239, 68, 68, 0.02);
+      border-color: rgba(239, 68, 68, 0.15);
+      
+      &:hover {
+        background: rgba(239, 68, 68, 0.04);
+        border-color: rgba(239, 68, 68, 0.3);
+      }
       
       .stat-value {
-        color: var(--color-danger, #ef4444);
+        color: var(--color-danger);
       }
     }
     
     .stat-lost {
-      border-color: var(--color-success, #10b981);
+      background: rgba(16, 185, 129, 0.02);
+      border-color: rgba(16, 185, 129, 0.15);
+      
+      &:hover {
+        background: rgba(16, 185, 129, 0.04);
+        border-color: rgba(16, 185, 129, 0.3);
+      }
       
       .stat-value {
-        color: var(--color-success, #10b981);
+        color: #10b981;
       }
     }
+
   `]
 })
 export class WeightChartComponent implements OnInit, AfterViewInit {

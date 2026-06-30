@@ -1,35 +1,32 @@
-// Main app container with new layout
 .app-main {
-  margin-top: 60px; // Height of topbar
-  margin-left: 250px; // Width of sidebar
-  min-height: calc(100vh - 60px);
-  background: var(--color-bg);
-  transition: margin-left 0.3s ease;
-  padding: 2rem;
-
-  // When sidebar is collapsed
-  &.sidebar-collapsed {
-    margin-left: 70px;
-  }
+  margin-top: 0;
+  margin-left: 0 !important;
+  padding-top: 5.5rem; /* Space below the floating topbar */
+  padding-bottom: 5.5rem; /* Space above the floating bottom dock */
+  min-height: 100vh;
+  background: transparent;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  /* max-width: 1400px; */
+  margin: 0 auto;
 }
 
-// Tablet & Mobile - No sidebar margin
+// Tablet & Mobile
 @media (max-width: 1024px) {
   .app-main {
-    margin-left: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-// Mobile - Reduce padding
-@media (max-width: 768px) {
-  .app-main {
-    padding: 1.5rem;
-  }
-}
-
-// Small Mobile - Further reduce padding
+// Small Mobile
 @media (max-width: 480px) {
   .app-main {
-    padding: 1rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }

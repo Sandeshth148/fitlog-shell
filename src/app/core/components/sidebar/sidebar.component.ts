@@ -33,10 +33,10 @@ import { SidebarService } from '../../services/sidebar.service';
            class="nav-item"
            [attr.title]="isCollapsed ? ('nav.weight' | translate) : null">
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="8" x2="12" y2="16"></line>
-              <line x1="8" y1="12" x2="16" y2="12"></line>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="4"/>
+              <circle cx="12" cy="12" r="5"/>
+              <path d="m12 12 2-2"/>
             </svg>
           </span>
           <span class="nav-text" *ngIf="!isCollapsed">{{ 'nav.weight' | translate }}</span>
@@ -48,8 +48,9 @@ import { SidebarService } from '../../services/sidebar.service';
            class="nav-item"
            [attr.title]="isCollapsed ? ('nav.trends' | translate) : null">
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+              <polyline points="16 7 22 7 22 13"></polyline>
             </svg>
           </span>
           <span class="nav-text" *ngIf="!isCollapsed">{{ 'nav.trends' | translate }}</span>
@@ -61,9 +62,8 @@ import { SidebarService } from '../../services/sidebar.service';
            class="nav-item"
            [attr.title]="isCollapsed ? 'Streaks' : null">
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
             </svg>
           </span>
           <span class="nav-text" *ngIf="!isCollapsed">{{ 'nav.streaks' | translate }}</span>
@@ -75,9 +75,10 @@ import { SidebarService } from '../../services/sidebar.service';
            class="nav-item"
            [attr.title]="isCollapsed ? 'Fasting' : null">
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="10" y1="2" x2="14" y2="2"/>
+              <line x1="12" y1="14" x2="15" y2="11"/>
+              <circle cx="12" cy="14" r="8"/>
             </svg>
           </span>
           <span class="nav-text" *ngIf="!isCollapsed">Fasting</span>
@@ -89,9 +90,12 @@ import { SidebarService } from '../../services/sidebar.service';
            class="nav-item"
            [attr.title]="isCollapsed ? ('nav.tasks' | translate) : null">
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 11l3 3L22 4"></path>
-              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+              <path d="M9 9h6"/>
+              <path d="M9 13h6"/>
+              <path d="M9 17h6"/>
             </svg>
           </span>
           <span class="nav-text" *ngIf="!isCollapsed">{{ 'nav.tasks' | translate }}</span>
@@ -103,10 +107,10 @@ import { SidebarService } from '../../services/sidebar.service';
            class="nav-item"
            [attr.title]="isCollapsed ? 'AI Insights' : null">
           <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"></path>
-              <circle cx="9" cy="14" r="1"></circle>
-              <circle cx="15" cy="14" r="1"></circle>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/>
+              <path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5Z"/>
+              <path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1Z"/>
             </svg>
           </span>
           <span class="nav-text" *ngIf="!isCollapsed">AI Insights</span>
@@ -130,174 +134,124 @@ import { SidebarService } from '../../services/sidebar.service';
     .sidebar {
       position: fixed;
       left: 0;
-      top: 60px; /* Below top bar */
-      bottom: 0;
-      width: 250px;
-      background: var(--color-primary);
-      color: white;
+      right: 0;
+      margin: 0 auto;
+      bottom: 1.5rem;
+      top: auto;
+      width: max-content;
+      max-width: 90vw;
+      height: 64px;
+      background: var(--color-menu-bg);
+      color: var(--color-text-primary);
       display: flex;
-      flex-direction: column;
-      transition: width 0.3s ease, transform 0.3s ease;
-      z-index: 90;
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .sidebar.collapsed {
-      width: 70px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      border: 1px solid var(--color-menu-border);
+      border-radius: 99px;
+      box-shadow: var(--menu-shadow);
+      padding: 0 0.75rem;
     }
 
     /* Navigation */
     .sidebar-nav {
-      flex: 1;
-      padding: 1rem 0;
-      padding-top: 1rem; /* Minimal top padding */
-      overflow-y: auto;
-      overflow-x: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .nav-item {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 1rem;
-      padding: 0.875rem 1.25rem;
-      color: rgba(255, 255, 255, 0.85);
-      text-decoration: none;
-      transition: all 0.2s ease;
-      position: relative;
-      white-space: nowrap;
-    }
-
-    .sidebar.collapsed .nav-item {
       justify-content: center;
-      padding: 0.875rem 0;
+      gap: 0.25rem;
+      padding: 0.35rem 0.875rem;
+      height: 48px;
+      min-width: 48px;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      border-radius: 99px;
     }
 
     .nav-item:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
+      background: rgba(var(--color-primary-rgb), 0.08);
+      color: var(--color-text-primary);
+      transform: translateY(-4px);
     }
 
     .nav-item.active {
-      background: rgba(255, 255, 255, 0.15);
-      color: white;
-      border-left: 3px solid white;
+      background: rgba(var(--color-primary-rgb), 0.15);
+      color: var(--color-primary);
     }
 
-    .sidebar.collapsed .nav-item.active {
-      border-left: none;
-      border-bottom: 3px solid white;
+    /* Active Glow Dot under active nav-item */
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      box-shadow: 0 0 8px var(--color-primary);
     }
 
     .nav-icon {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-item:hover .nav-icon {
+      transform: scale(1.15);
     }
 
     .nav-text {
-      font-weight: 500;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: none; /* Hide label on desktop bottom bar to save space, rely on hover tooltip */
     }
 
-    /* Future item styling */
-    .nav-item-future {
-      opacity: 0.6;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-
-    .coming-soon {
-      font-size: 0.7rem;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.15rem 0.4rem;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    /* Sidebar Footer */
-    .sidebar-footer {
-      padding: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .toggle-btn {
-      width: 100%;
-      padding: 0.75rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      border-radius: 6px;
-      color: white;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .toggle-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Mobile Overlay */
+    /* Hide unused traditional widgets */
+    .sidebar-footer,
     .sidebar-overlay {
-      display: none;
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 85;
+      display: none !important;
     }
 
     /* Tablet & Mobile Responsive */
     @media (max-width: 1024px) {
       .sidebar {
-        transform: translateX(-100%);
-      }
-
-      .sidebar.mobile-open {
-        transform: translateX(0);
-      }
-
-      .sidebar-overlay {
-        display: block;
-      }
-
-      .sidebar.collapsed {
-        width: 250px; /* Full width on mobile */
+        transform: translateX(-50%);
+        bottom: 1rem;
+        left: 50%;
       }
     }
 
     /* Small Mobile */
     @media (max-width: 480px) {
       .sidebar {
-        width: 80%;
-        max-width: 280px;
+        bottom: 0.75rem;
+        height: 58px;
+        padding: 0 0.5rem;
+        max-width: 95vw;
       }
-    }
-
-    /* Scrollbar styling */
-    .sidebar-nav::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .sidebar-nav::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .sidebar-nav::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 3px;
-    }
-
-    .sidebar-nav::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.3);
+      
+      .nav-item {
+        padding: 0.25rem 0.5rem;
+        min-width: 40px;
+        height: 44px;
+      }
     }
   `]
 })
