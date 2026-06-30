@@ -1,6 +1,6 @@
 <div class="entry-list-container">
   <h3 *ngIf="entries.length > 0">{{ 'home.recentEntries' | translate }}</h3>
-  <ul class="entry-list" *ngIf="entries.length > 0; else noEntries">
+  <ul class="entry-grid" *ngIf="entries.length > 0; else noEntries">
     <li *ngFor="let entry of entries; trackBy: trackById" class="entry-item">
       <div class="entry-details">
         <div class="entry-date-time">

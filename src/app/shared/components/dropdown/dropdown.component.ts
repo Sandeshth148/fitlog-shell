@@ -46,7 +46,9 @@ export interface DropdownOption {
         
         <span class="dropdown-label">{{ selectedOption()?.label || placeholder }}</span>
         
-        <span class="dropdown-arrow" [class.open]="isOpen()">▼</span>
+        <svg class="dropdown-arrow" [class.open]="isOpen()" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 1 5 5 9 1"></polyline>
+        </svg>
       </button>
       
       @if (isOpen()) {
@@ -78,12 +80,12 @@ export interface DropdownOption {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--glass-border);
+      background: var(--color-card-bg, rgba(255, 255, 255, 0.05));
+      border: 1px solid var(--color-card-border, var(--glass-border));
       color: var(--color-text-primary);
       cursor: pointer;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
+      padding: 0.4rem 0.85rem;
+      border-radius: 12px;
       transition: all 0.25s ease;
       font-size: 0.875rem;
       font-weight: 600;
@@ -106,9 +108,10 @@ export interface DropdownOption {
     }
     
     .dropdown-arrow {
-      font-size: 0.65rem;
       transition: transform 0.25s ease;
       opacity: 0.7;
+      width: 10px;
+      height: 6px;
     }
     
     .dropdown-arrow.open {
@@ -119,11 +122,11 @@ export interface DropdownOption {
       position: absolute;
       top: 100%;
       right: 0;
-      background: var(--color-surface);
+      background: var(--color-card-bg, var(--color-surface));
       backdrop-filter: blur(var(--glass-blur)) saturate(180%);
       -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
+      border: 1px solid var(--color-card-border, var(--glass-border));
+      border-radius: 14px;
       box-shadow: var(--glass-shadow);
       min-width: 150px;
       z-index: 1000;
@@ -131,7 +134,7 @@ export interface DropdownOption {
       margin-top: 0.5rem;
       animation: dropdownFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
+ 
     @keyframes dropdownFadeIn {
       from {
         opacity: 0;
@@ -148,7 +151,7 @@ export interface DropdownOption {
       align-items: center;
       gap: 0.5rem;
       width: 100%;
-      padding: 0.75rem 1rem;
+      padding: 0.65rem 1rem;
       background: none;
       border: none;
       color: var(--color-text);

@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { ThemeService } from './theme.service';
 
 describe('ThemeService', () => {
-  let service: ThemeService;
   let localStorageSpy: jasmine.SpyObj<Storage>;
   let documentElementSpy: jasmine.SpyObj<HTMLElement>;
 
@@ -24,10 +23,10 @@ describe('ThemeService', () => {
     TestBed.configureTestingModule({
       providers: [ThemeService]
     });
-    service = TestBed.inject(ThemeService);
   });
 
   it('should be created', () => {
+    const service = TestBed.inject(ThemeService);
     expect(service).toBeTruthy();
   });
 
@@ -36,7 +35,7 @@ describe('ThemeService', () => {
     localStorageSpy.getItem.and.returnValue('dark');
     
     // Act
-    service.init();
+    const service = TestBed.inject(ThemeService);
     
     // Assert
     expect(service.getTheme()).toBe('dark');
@@ -46,7 +45,7 @@ describe('ThemeService', () => {
   it('should toggle theme from light to dark', () => {
     // Arrange
     localStorageSpy.getItem.and.returnValue('light');
-    service.init();
+    const service = TestBed.inject(ThemeService);
     
     // Act
     service.toggleTheme();
@@ -60,7 +59,7 @@ describe('ThemeService', () => {
   it('should toggle theme from dark to light', () => {
     // Arrange
     localStorageSpy.getItem.and.returnValue('dark');
-    service.init();
+    const service = TestBed.inject(ThemeService);
     
     // Act
     service.toggleTheme();
@@ -78,7 +77,7 @@ describe('ThemeService', () => {
     spyOn(window, 'matchMedia').and.returnValue(mediaQueryListMock as any);
     
     // Act
-    service.init();
+    const service = TestBed.inject(ThemeService);
     
     // Assert
     expect(service.getTheme()).toBe('dark');
